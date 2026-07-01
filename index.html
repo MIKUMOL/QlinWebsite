@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="de" class="theme-patient">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qlin — Wissen, wann Sie dran sind. Terminmanagement für Arztpraxen</title>
+  <meta name="description" content="Qlin bringt Echtzeit-Wartezeiten, anonyme Terminbuchung und QR-Check-in in Ihre Praxis. Ruhigeres Wartezimmer, planbarer Tag — ohne App, DSGVO-konform." />
+  <meta name="theme-color" content="#0e2c4d" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Qlin — Wissen, wann Sie dran sind." />
+  <meta property="og:description" content="Echtzeit-Wartezeiten, anonyme Terminbuchung und QR-Check-in für Arztpraxen. Ohne App, DSGVO-konform." />
+  <meta property="og:image" content="assets/qlin-logo.png" />
+
+  <link rel="icon" type="image/png" href="assets/qlin-logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter+Tight:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" data-header>
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Qlin — Startseite">
+        <svg class="logo-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+          <circle cx="18" cy="18" r="12.4" stroke="currentColor" stroke-width="2.3" />
+          <path d="M18 10.4V18l5.2 3.4" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" />
+          <rect x="30.2" y="26.7" width="4.6" height="12.6" rx="2.1" fill="currentColor" />
+          <rect x="26.2" y="30.7" width="12.6" height="4.6" rx="2.1" fill="currentColor" />
+        </svg>
+        <span class="brand-word">Qlin</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Hauptnavigation">
+        <a href="#patienten">Für Patienten</a>
+        <a href="#praxis">Für Praxen</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#sicherheit">Sicherheit</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-ghost btn-sm hide-mobile" href="#praxis">Anmelden</a>
+        <a class="btn btn-solid btn-sm" href="#kontakt">Demo anfragen</a>
+        <button class="menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Menü öffnen">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+      <nav aria-label="Mobile Navigation">
+        <a href="#patienten">Für Patienten</a>
+        <a href="#praxis">Für Praxen</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#sicherheit">Sicherheit</a>
+        <a class="mobile-cta" href="#kontakt">Demo anfragen</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <span id="top"></span>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow reveal">Terminmanagement für Arztpraxen</p>
+        <h1 class="hero-title reveal" id="hero-title">
+          <span class="line-grotesk">Wissen, wann</span>
+          <span class="line-serif">Sie dran sind.</span>
+        </h1>
+        <p class="hero-sub reveal">
+          Qlin bringt Echtzeit-Wartezeiten, anonyme Terminbuchung und QR-Check-in
+          in Ihre Praxis. Ruhigeres Wartezimmer, planbarer Tag — für Sie und Ihre Patienten.
+        </p>
+        <div class="hero-actions reveal">
+          <a class="btn btn-solid" href="#kontakt">Für Praxen starten</a>
+          <a class="btn btn-ghost" href="#ablauf">So funktioniert&#39;s</a>
+        </div>
+        <p class="hero-note reveal">Für Patienten kostenlos&ensp;·&ensp;ohne App-Installation&ensp;·&ensp;DSGVO-konform</p>
+      </div>
+
+      <!-- Signature: the real Live-Wartezeit panel, rebuilt -->
+      <div class="hero-visual reveal" aria-hidden="false">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="phone" role="img" aria-label="Qlin App: Live-Wartezeit für einen gebuchten Termin — ruhig, etwa zwölf Minuten bis zum Aufruf, drei Patienten vor Ihnen.">
+          <div class="phone-notch" aria-hidden="true"></div>
+          <div class="phone-screen">
+            <div class="app-top">
+              <span class="app-dot" aria-hidden="true"></span>
+              <span class="app-live">Live-Wartezeit</span>
+              <span class="app-time">14:26</span>
+            </div>
+
+            <p class="app-practice">Praxis am Rosengarten</p>
+            <p class="app-appt">Hausärztlich · Kontrolle</p>
+
+            <div class="gauge">
+              <svg viewBox="0 0 120 120" class="gauge-svg" aria-hidden="true">
+                <circle class="gauge-track" cx="60" cy="60" r="52" />
+                <circle class="gauge-fill" cx="60" cy="60" r="52" />
+              </svg>
+              <div class="gauge-center">
+                <span class="gauge-label">Ruhig</span>
+                <span class="gauge-hint">Niedrige Auslastung</span>
+              </div>
+            </div>
+
+            <p class="app-eta"><strong>≈ 12 Min</strong> bis zum Aufruf</p>
+
+            <div class="app-stats">
+              <div class="app-stat">
+                <span class="app-stat-num">3</span>
+                <span class="app-stat-lab">vor Ihnen</span>
+              </div>
+              <div class="app-stat">
+                <span class="app-stat-num">14:38</span>
+                <span class="app-stat-lab">Aufruf ~</span>
+              </div>
+            </div>
+
+            <button class="app-btn" type="button" tabindex="-1">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="18" height="18">
+                <rect x="3.5" y="3.5" width="6" height="6" rx="1.4" stroke="currentColor" stroke-width="1.8"/>
+                <rect x="14.5" y="3.5" width="6" height="6" rx="1.4" stroke="currentColor" stroke-width="1.8"/>
+                <rect x="3.5" y="14.5" width="6" height="6" rx="1.4" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M14.5 14.5h3v3m3 0v3h-6v-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+              Per QR einchecken
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TICKER ============ -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Echtzeit-Wartezeit</span><i>·</i><span>Anonyme Terminbuchung</span><i>·</i><span>QR-Check-in</span><i>·</i><span>Push-Aufruf</span><i>·</i><span>Schichtplanung</span><i>·</i><span>Öffnungszeiten</span><i>·</i><span>Wartezimmer-Board</span><i>·</i><span>DE / EN</span><i>·</i>
+        <span>Echtzeit-Wartezeit</span><i>·</i><span>Anonyme Terminbuchung</span><i>·</i><span>QR-Check-in</span><i>·</i><span>Push-Aufruf</span><i>·</i><span>Schichtplanung</span><i>·</i><span>Öffnungszeiten</span><i>·</i><span>Wartezimmer-Board</span><i>·</i><span>DE / EN</span><i>·</i>
+      </div>
+    </div>
+
+    <!-- ============ STATEMENT ============ -->
+    <section class="statement shell">
+      <p class="statement-text reveal">
+        Volle Wartezimmer, Termine per Telefon, Wartezeiten im Blindflug.
+        <em>Qlin macht daraus einen ruhigen, planbaren Ablauf</em> — für die Praxis
+        am Empfang und für den Patienten auf dem Sofa.
+      </p>
+    </section>
+
+    <!-- ============ FÜR PATIENTEN (blau) ============ -->
+    <section class="section band-patient shell" id="patienten" aria-labelledby="pat-h">
+      <div class="section-head">
+        <p class="eyebrow eyebrow-blue reveal">Für Patienten</p>
+        <h2 class="section-title reveal" id="pat-h">Ein Termin. Ohne Telefonschleife, ohne Account.</h2>
+        <p class="section-lead reveal">
+          Patienten buchen anonym, sehen ihre Wartezeit in Echtzeit und checken per
+          QR-Code ein. Kein Name, keine E-Mail, keine App im Store.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature reveal">
+          <div class="feature-num">01</div>
+          <h3>Anonym buchen</h3>
+          <p>Praxis suchen, Datum, Uhrzeit und Terminart wählen — vier Schritte, kein Konto. Die Sitzung bleibt im Browser.</p>
+        </article>
+        <article class="feature reveal">
+          <div class="feature-num">02</div>
+          <h3>Wartezeit in Echtzeit</h3>
+          <p>Eine Warteschlangen-Simulation aus Schichtplänen und Check-ins zeigt, wann es voraussichtlich losgeht.</p>
+        </article>
+        <article class="feature reveal">
+          <div class="feature-num">03</div>
+          <h3>Per QR einchecken</h3>
+          <p>Beim Eintreffen den Praxis-Code scannen. Kamera im Browser genügt — Check-in und Checkout ohne Extra-App.</p>
+        </article>
+        <article class="feature reveal">
+          <div class="feature-num">04</div>
+          <h3>Aufruf aufs Handy</h3>
+          <p>Eine Push-Nachricht meldet sich, wenn Sie dran sind. Funktioniert auch bei gesperrtem Bildschirm.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ FÜR DIE PRAXIS (grün) ============ -->
+    <section class="section band-doctor theme-doctor" id="praxis" aria-labelledby="prax-h">
+      <div class="shell praxis-inner">
+        <div class="praxis-copy">
+          <p class="eyebrow eyebrow-green reveal">Für die Praxis</p>
+          <h2 class="section-title reveal" id="prax-h">Das Wartezimmer, digital im Griff.</h2>
+          <p class="section-lead reveal">
+            Ein Dashboard für den ganzen Tag: eingecheckte Patienten aufrufen,
+            Schichten planen, Öffnungszeiten und Terminarten pflegen — an einem Ort.
+          </p>
+          <ul class="check-list reveal">
+            <li>Wartezimmer-Board mit Aufruf per Push</li>
+            <li>Wochen-Schichtplan inkl. Abwesenheiten &amp; Schließungen</li>
+            <li>Öffnungszeiten mit mehreren Zeitblöcken pro Tag</li>
+            <li>Terminarten mit Dauer selbst verwalten</li>
+            <li>Walk-ins manuell eintragen</li>
+          </ul>
+        </div>
+
+        <!-- Practice dashboard mock -->
+        <div class="dash reveal" role="img" aria-label="Qlin Praxis-Dashboard: Tagesüberblick mit Wartezimmerliste und Aufrufen-Schaltflächen.">
+          <div class="dash-top">
+            <div>
+              <p class="dash-title">Wartezimmer</p>
+              <p class="dash-sub">Heute · Di, 1. Juli</p>
+            </div>
+            <span class="dash-badge">Live</span>
+          </div>
+          <div class="dash-tiles">
+            <div class="dash-tile"><span class="dash-tile-num">24</span><span class="dash-tile-lab">Termine heute</span></div>
+            <div class="dash-tile"><span class="dash-tile-num">6</span><span class="dash-tile-lab">eingecheckt</span></div>
+            <div class="dash-tile"><span class="dash-tile-num">9<small>Min</small></span><span class="dash-tile-lab">Ø Wartezeit</span></div>
+          </div>
+          <ul class="dash-queue">
+            <li>
+              <span class="q-avatar" aria-hidden="true">A</span>
+              <span class="q-body"><span class="q-name">Anna K.</span><span class="q-meta">eingecheckt 14:02 · Kontrolle</span></span>
+              <button class="q-call" type="button" tabindex="-1">Aufrufen</button>
+            </li>
+            <li>
+              <span class="q-avatar" aria-hidden="true">M</span>
+              <span class="q-body"><span class="q-name">Milan R.</span><span class="q-meta">eingecheckt 14:07 · Blutabnahme</span></span>
+              <button class="q-call" type="button" tabindex="-1">Aufrufen</button>
+            </li>
+            <li>
+              <span class="q-avatar" aria-hidden="true">S</span>
+              <span class="q-body"><span class="q-name">Sofia B.</span><span class="q-meta">eingecheckt 14:11 · Beratung</span></span>
+              <button class="q-call" type="button" tabindex="-1">Aufrufen</button>
+            </li>
+          </ul>
+          <p class="dash-foot">Beispielansicht · echte Daten bleiben in Ihrer Praxis</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABLAUF ============ -->
+    <section class="section shell" id="ablauf" aria-labelledby="ablauf-h">
+      <div class="section-head">
+        <p class="eyebrow reveal">So funktioniert&#39;s</p>
+        <h2 class="section-title reveal" id="ablauf-h">Vom Termin bis zum Aufruf.</h2>
+      </div>
+      <ol class="steps">
+        <li class="step reveal">
+          <span class="step-n">01</span>
+          <h3>Praxis finden</h3>
+          <p>Nach Name, Fachrichtung oder Ort suchen — mit Öffnungszeiten auf einen Blick.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-n">02</span>
+          <h3>Termin buchen</h3>
+          <p>Freien Slot und Terminart wählen. Bestätigung sofort, ganz ohne Anruf.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-n">03</span>
+          <h3>Wartezeit sehen</h3>
+          <p>Am Termintag zeigt Qlin live, wie viele vor Ihnen sind und wann es losgeht.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-n">04</span>
+          <h3>Einchecken</h3>
+          <p>QR scannen, Platz nehmen, aufs Handy warten. Der Aufruf kommt per Push.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ SICHERHEIT ============ -->
+    <section class="section band-security theme-patient" id="sicherheit" aria-labelledby="sec-h">
+      <div class="shell security-inner">
+        <div class="security-copy">
+          <p class="eyebrow eyebrow-blue reveal">Sicherheit &amp; Datenschutz</p>
+          <h2 class="section-title section-title-invert reveal" id="sec-h">Gesundheitsdaten gehören geschützt.</h2>
+          <p class="section-lead lead-invert reveal">
+            Qlin ist für den DACH-Raum gebaut: anonyme Sitzungen, strenge
+            Zugriffsregeln auf Datenbankebene und keine Tracking-Cookies.
+          </p>
+        </div>
+        <ul class="security-grid">
+          <li class="reveal"><span class="sec-key">Anonym</span><p>Patienten brauchen weder Name noch E-Mail. Keine personenbezogenen Daten für die Nutzung.</p></li>
+          <li class="reveal"><span class="sec-key">RLS überall</span><p>Row Level Security auf allen 9 Tabellen. Jede Praxis sieht nur die eigenen Daten.</p></li>
+          <li class="reveal"><span class="sec-key">0 Tracker</span><p>Keine Tracking-Cookies, kein Werbe-Pixel. Nur, was die Terminverwaltung wirklich braucht.</p></li>
+          <li class="reveal"><span class="sec-key">DSGVO</span><p>Impressum und Datenschutzerklärung inklusive. Auftragsverarbeitung dokumentiert, Löschrecht umgesetzt.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta band-cta theme-patient" id="kontakt" aria-labelledby="cta-h">
+      <div class="shell cta-inner">
+        <p class="eyebrow eyebrow-on-dark reveal">Bereit?</p>
+        <h2 class="cta-title reveal" id="cta-h">Machen Sie das Wartezimmer&nbsp;ruhig.</h2>
+        <p class="cta-sub reveal">
+          Zeigen Sie uns Ihre Praxis — wir richten Öffnungszeiten, Terminarten und
+          das Wartezimmer-Board gemeinsam ein.
+        </p>
+        <form class="cta-form reveal" data-demo-form novalidate>
+          <label class="visually-hidden" for="email">E-Mail-Adresse Ihrer Praxis</label>
+          <input id="email" name="email" type="email" inputmode="email" placeholder="praxis@beispiel.de" autocomplete="email" required />
+          <button class="btn btn-solid-invert" type="submit">Demo anfragen</button>
+        </form>
+        <p class="cta-hint reveal" data-form-hint>Wir melden uns innerhalb eines Werktags. Kein Newsletter, keine Weitergabe.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer theme-patient">
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <a class="brand brand-footer" href="#top" aria-label="Qlin — Startseite">
+          <svg class="logo-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+            <circle cx="18" cy="18" r="12.4" stroke="currentColor" stroke-width="2.3" />
+            <path d="M18 10.4V18l5.2 3.4" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" />
+            <rect x="30.2" y="26.7" width="4.6" height="12.6" rx="2.1" fill="currentColor" />
+            <rect x="26.2" y="30.7" width="12.6" height="4.6" rx="2.1" fill="currentColor" />
+          </svg>
+          <span class="brand-word">Qlin</span>
+        </a>
+        <p class="footer-tag">Terminmanagement, das das Wartezimmer ruhig macht. Gebaut für Arztpraxen im DACH-Raum.</p>
+      </div>
+
+      <nav class="footer-col" aria-label="Produkt">
+        <p class="footer-h">Produkt</p>
+        <a href="#patienten">Für Patienten</a>
+        <a href="#praxis">Für Praxen</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#sicherheit">Sicherheit</a>
+      </nav>
+
+      <nav class="footer-col" aria-label="Rechtliches">
+        <p class="footer-h">Rechtliches</p>
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <div class="footer-col">
+        <p class="footer-h">Sprache</p>
+        <p class="footer-meta">Deutsch · English</p>
+        <p class="footer-meta">Made in DACH</p>
+      </div>
+    </div>
+    <div class="shell footer-base">
+      <p>© <span data-year>2026</span> Qlin</p>
+      <p>Kein Ersatz für ärztlichen Rat.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
