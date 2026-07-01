@@ -15,10 +15,8 @@
 
   <link rel="icon" type="image/png" href="assets/qlin-logo.png" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter+Tight:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
+  <!-- Fonts are self-hosted (no request to Google) — see assets/fonts/fonts.css -->
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -310,6 +308,10 @@
           <input id="email" name="email" type="email" inputmode="email" placeholder="praxis@beispiel.de" autocomplete="email" required />
           <button class="btn btn-solid-invert" type="submit">Demo anfragen</button>
         </form>
+        <div class="cta-consent reveal">
+          <input type="checkbox" id="consent" data-consent />
+          <label for="consent">Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Angaben zur Kontaktaufnahme zu.</label>
+        </div>
         <p class="cta-hint reveal" data-form-hint>Wir melden uns innerhalb eines Werktags. Kein Newsletter, keine Weitergabe.</p>
       </div>
     </section>
@@ -341,8 +343,8 @@
 
       <nav class="footer-col" aria-label="Rechtliches">
         <p class="footer-h">Rechtliches</p>
-        <a href="#">Impressum</a>
-        <a href="#">Datenschutz</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
 

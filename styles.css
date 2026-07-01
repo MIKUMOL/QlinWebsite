@@ -804,6 +804,75 @@ section[id] { scroll-margin-top: 88px; }
 @media (min-width: 560px) { .hide-mobile { display: inline-flex; } }
 
 /* ============================================================
+   LEGAL PAGES (Impressum / Datenschutz)
+   ============================================================ */
+.legal { padding-block: clamp(2.25rem, 5vw, 3.75rem) clamp(3.5rem, 8vw, 7rem); }
+.legal-back {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  font-family: var(--font-grotesk); font-size: 0.9rem; color: var(--muted);
+  margin-bottom: 1.6rem; transition: color 0.18s ease;
+}
+.legal-back:hover { color: var(--text); }
+.legal-title {
+  font-family: var(--font-serif); font-weight: 400;
+  font-size: clamp(2rem, 1.4rem + 2.4vw, 3.4rem); line-height: 1.08;
+  letter-spacing: -0.02em; margin: 0.9rem 0 0.5rem;
+}
+.legal-updated {
+  font-family: var(--font-grotesk); font-size: 0.85rem; color: var(--muted);
+  margin-bottom: clamp(2rem, 5vw, 3.25rem);
+}
+
+.prose { max-width: 68ch; }
+.prose h2 {
+  font-family: var(--font-grotesk); font-weight: 600;
+  font-size: clamp(1.15rem, 1rem + 0.55vw, 1.4rem);
+  letter-spacing: -0.01em; color: var(--text);
+  margin-top: 2.4em; margin-bottom: 0.7em;
+  padding-top: 1.5em; border-top: 1px solid var(--line);
+}
+.prose h2:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+.prose h3 {
+  font-family: var(--font-grotesk); font-weight: 600; font-size: 1.02rem;
+  color: var(--text); margin-top: 1.7em; margin-bottom: 0.45em;
+}
+.prose p, .prose li { color: var(--text-2); line-height: 1.72; }
+.prose p { margin-bottom: 1em; }
+.prose ul { list-style: disc; padding-left: 1.35em; margin-bottom: 1.2em; display: grid; gap: 0.4em; }
+.prose a { color: var(--brand-dark); text-decoration: underline; text-underline-offset: 3px; }
+.prose a:hover { color: var(--text); }
+.prose strong { color: var(--text); font-weight: 600; }
+.prose address { font-style: normal; line-height: 1.7; }
+
+/* fill-in placeholders — visually obvious so nothing is missed before launch */
+.ph {
+  background: var(--brand-soft-med);
+  border-bottom: 1px dashed var(--brand-border);
+  padding: 0.05em 0.35em; border-radius: 4px;
+  font-family: var(--font-grotesk); font-size: 0.92em; color: var(--text);
+}
+.legal-note {
+  background: var(--bg-2); border: 1px solid var(--line);
+  border-left: 3px solid var(--brand);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  padding: 0.9rem 1.1rem; margin: 1.3rem 0;
+  font-size: 0.88rem; line-height: 1.6; color: var(--muted);
+}
+.legal-note strong { color: var(--text-2); }
+
+/* consent row on the demo form (dark CTA) */
+.cta-consent {
+  display: flex; align-items: flex-start; gap: 0.6rem;
+  margin-top: 0.9rem; max-width: 34rem;
+}
+.cta-consent input {
+  width: 20px; height: 20px; flex: none; margin-top: 0.15rem;
+  accent-color: var(--brand);
+}
+.cta-consent label { font-size: 0.85rem; color: var(--on-dark-muted); line-height: 1.5; }
+.cta-consent a { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
+
+/* ============================================================
    REDUCED MOTION
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {

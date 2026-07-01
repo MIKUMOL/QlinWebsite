@@ -94,28 +94,37 @@
   /* ---- Demo form (client-side only) ---- */
   var form = document.querySelector("[data-demo-form]");
   var hint = document.querySelector("[data-form-hint]");
+  var consent = document.querySelector("[data-consent]");
   if (form && hint) {
     var defaultHint = hint.textContent;
+    var resetHint = function () {
+      if (hint.getAttribute("data-state")) {
+        hint.removeAttribute("data-state");
+        hint.textContent = defaultHint;
+      }
+    };
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var input = form.querySelector("input[type=email]");
       var value = input ? input.value.trim() : "";
-      var valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-      if (!valid) {
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
         hint.textContent = "Bitte eine gültige E-Mail-Adresse eingeben.";
         hint.setAttribute("data-state", "err");
         if (input) input.focus();
         return;
       }
+      if (consent && !consent.checked) {
+        hint.textContent = "Bitte bestätigen Sie die Datenschutzerklärung.";
+        hint.setAttribute("data-state", "err");
+        consent.focus();
+        return;
+      }
       hint.textContent = "Danke — wir melden uns innerhalb eines Werktags bei " + value + ".";
       hint.setAttribute("data-state", "ok");
       form.reset();
+      if (consent) consent.checked = false;
     });
-    form.addEventListener("input", function () {
-      if (hint.getAttribute("data-state")) {
-        hint.removeAttribute("data-state");
-        hint.textContent = defaultHint;
-      }
-    });
+    form.addEventListener("input", resetHint);
+    if (consent) consent.addEventListener("change", resetHint);
   }
 })();
