@@ -181,6 +181,7 @@ section[id] { scroll-margin-top: 88px; }
   min-height: 48px;
 }
 .btn-sm { padding: 0.65rem 1.15rem; font-size: 0.9rem; min-height: 42px; }
+.btn[disabled] { opacity: 0.6; cursor: default; transform: none; box-shadow: none; }
 
 .btn-solid { background: var(--navy-deep); color: #fff; }
 .btn-solid:hover { background: var(--navy); transform: translateY(-2px); box-shadow: var(--shadow); }
@@ -220,7 +221,7 @@ section[id] { scroll-margin-top: 88px; }
   gap: 0.55rem;
   color: var(--navy-deep);
 }
-.logo-mark { width: 34px; height: 34px; flex: none; }
+.logo-mark { width: 34px; height: 34px; flex: none; border-radius: 8px; object-fit: cover; display: block; }
 .brand-word {
   font-family: var(--font-grotesk);
   font-weight: 700;
@@ -372,7 +373,8 @@ section[id] { scroll-margin-top: 88px; }
   position: relative;
   background: var(--bg);
   border-radius: 34px;
-  padding: 1.4rem 1.25rem 1.25rem;
+  /* top padding clears the notch (ends 42px from the phone edge) */
+  padding: 2.6rem 1.25rem 1.25rem;
   overflow: hidden;
 }
 

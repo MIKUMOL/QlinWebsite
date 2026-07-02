@@ -26,12 +26,7 @@
   <header class="site-header" data-header>
     <div class="shell header-inner">
       <a class="brand" href="#top" aria-label="Qlin — Startseite">
-        <svg class="logo-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
-          <circle cx="18" cy="18" r="12.4" stroke="currentColor" stroke-width="2.3" />
-          <path d="M18 10.4V18l5.2 3.4" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" />
-          <rect x="30.2" y="26.7" width="4.6" height="12.6" rx="2.1" fill="currentColor" />
-          <rect x="26.2" y="30.7" width="12.6" height="4.6" rx="2.1" fill="currentColor" />
-        </svg>
+        <img class="logo-mark" src="assets/qlin-logo.png" alt="" aria-hidden="true" />
         <span class="brand-word">Qlin</span>
       </a>
 
@@ -93,7 +88,7 @@
             <div class="app-top">
               <span class="app-dot" aria-hidden="true"></span>
               <span class="app-live">Live-Wartezeit</span>
-              <span class="app-time">14:26</span>
+              <span class="app-time" data-app-time>14:26</span>
             </div>
 
             <p class="app-practice">Praxis am Rosengarten</p>
@@ -118,7 +113,7 @@
                 <span class="app-stat-lab">vor Ihnen</span>
               </div>
               <div class="app-stat">
-                <span class="app-stat-num">14:38</span>
+                <span class="app-stat-num" data-app-call>14:38</span>
                 <span class="app-stat-lab">Aufruf ~</span>
               </div>
             </div>
@@ -306,6 +301,8 @@
         <form class="cta-form reveal" data-demo-form novalidate>
           <label class="visually-hidden" for="email">E-Mail-Adresse Ihrer Praxis</label>
           <input id="email" name="email" type="email" inputmode="email" placeholder="praxis@beispiel.de" autocomplete="email" required />
+          <!-- honeypot: hidden from humans, bots tend to fill it -->
+          <input class="visually-hidden" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" data-hp />
           <button class="btn btn-solid-invert" type="submit">Demo anfragen</button>
         </form>
         <div class="cta-consent reveal">
@@ -322,12 +319,7 @@
     <div class="shell footer-inner">
       <div class="footer-brand">
         <a class="brand brand-footer" href="#top" aria-label="Qlin — Startseite">
-          <svg class="logo-mark" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
-            <circle cx="18" cy="18" r="12.4" stroke="currentColor" stroke-width="2.3" />
-            <path d="M18 10.4V18l5.2 3.4" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" />
-            <rect x="30.2" y="26.7" width="4.6" height="12.6" rx="2.1" fill="currentColor" />
-            <rect x="26.2" y="30.7" width="12.6" height="4.6" rx="2.1" fill="currentColor" />
-          </svg>
+          <img class="logo-mark" src="assets/qlin-logo.png" alt="" aria-hidden="true" />
           <span class="brand-word">Qlin</span>
         </a>
         <p class="footer-tag">Terminmanagement, das das Wartezimmer ruhig macht. Gebaut für Arztpraxen im DACH-Raum.</p>
