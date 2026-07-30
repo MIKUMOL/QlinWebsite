@@ -5,14 +5,15 @@
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---- Supabase (demo-request form) --------------------------------------
-     The anon / publishable key is meant to be public — it ships in the client.
-     Security comes from Row Level Security: this table allows INSERT only,
-     never SELECT, so nobody can read the leads with this key.
-     Until SUPABASE_ANON_KEY is filled in, the form falls back to a local
+     The form posts to the `demo-request` Edge Function (JWT verification off).
+     That function stores the lead in the `demo_requests` table (service role,
+     insert-only RLS) AND sends a notification e-mail to the practice via
+     Resend. The anon / publishable key below is meant to be public — it ships
+     in the client. Until it is filled in, the form falls back to a local
      confirmation so the site keeps working. */
   var SUPABASE_URL = "https://sipuirjoyeaqrxdbepqr.supabase.co";
   var SUPABASE_ANON_KEY = "sb_publishable_KxbvIFyvLtCgd4NbrEOFpA_2_6FPnFb";
-  var SUPABASE_TABLE = "demo_requests";
+  var DEMO_FUNCTION = "demo-request";
   var supabaseReady =
     /^https:\/\//.test(SUPABASE_URL) &&
     SUPABASE_ANON_KEY.indexOf("__") === -1 &&
@@ -164,13 +165,12 @@
 
       if (button) button.disabled = true;
       setState("Wird gesendet …", null);
-      fetch(SUPABASE_URL + "/rest/v1/" + SUPABASE_TABLE, {
+      fetch(SUPABASE_URL + "/functions/v1/" + DEMO_FUNCTION, {
         method: "POST",
         headers: {
           "apikey": SUPABASE_ANON_KEY,
           "Authorization": "Bearer " + SUPABASE_ANON_KEY,
-          "Content-Type": "application/json",
-          "Prefer": "return=minimal"
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           email: value,
