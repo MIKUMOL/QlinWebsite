@@ -121,15 +121,38 @@
     }
   }
 
-  /* ---- Demo-request form ---- */
+  /* ---- Demo-request form ------------------------------------------------
+     Validation + anti-abuse. NOTE: everything here is only a first line of
+     defence — a script can bypass the browser entirely, so the real rate
+     limiting lives server-side in the `demo-request` Edge Function. */
+
+  // Robust e-mail check: rejects "quatsch" like a@b, foo@bar.c, double dots …
+  var isValidEmail = function (v) {
+    if (!v || v.length > 200) return false;
+    if (!/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,24}$/.test(v)) return false;
+    if (v.indexOf("..") !== -1) return false;               // no consecutive dots
+    var at = v.split("@");
+    var local = at[0], domain = at[1];
+    if (local.length > 64) return false;
+    if (/^\.|\.$/.test(local)) return false;                // local part: no leading/trailing dot
+    if (/^[.-]|[.-]$/.test(domain)) return false;           // domain: no leading/trailing dot or hyphen
+    return true;
+  };
+
+  var COOLDOWN_MS = 45000;   // client-side: min. pause between two submits
+  var MIN_FILL_MS = 1200;    // client-side: forms filled faster than this ≈ bot
+
   var form = document.querySelector("[data-demo-form]");
   var hint = document.querySelector("[data-form-hint]");
   var consent = document.querySelector("[data-consent]");
   if (form && hint) {
     var defaultHint = hint.textContent;
-    var input = form.querySelector("input[type=email]");
+    var emailInput = form.querySelector("#email");
+    var practiceInput = form.querySelector("#practice");
+    var locationInput = form.querySelector("#location");
     var button = form.querySelector("button[type=submit]");
     var honeypot = form.querySelector("[data-hp]");
+    var readyAt = Date.now();  // time-trap baseline
 
     var setState = function (msg, state) {
       hint.textContent = msg;
@@ -139,29 +162,58 @@
     var resetHint = function () {
       if (hint.getAttribute("data-state")) setState(defaultHint, null);
     };
-    var succeed = function (value) {
-      setState("Danke — wir melden uns innerhalb eines Werktags bei " + value + ".", "ok");
+    var fail = function (msg, el) {
+      setState(msg, "err");
+      if (el) { el.setAttribute("aria-invalid", "true"); el.focus(); }
+    };
+    var clearInvalid = function () {
+      [practiceInput, locationInput, emailInput].forEach(function (el) {
+        if (el) el.removeAttribute("aria-invalid");
+      });
+    };
+    var lastSubmit = function () {
+      try { return parseInt(localStorage.getItem("qlin_demo_last") || "0", 10) || 0; }
+      catch (e) { return 0; }
+    };
+    var succeed = function (practice) {
+      setState("Danke — wir melden uns innerhalb eines Werktags bei " + practice + ".", "ok");
+      try { localStorage.setItem("qlin_demo_last", String(Date.now())); } catch (e) {}
       form.reset();
+      clearInvalid();
+      readyAt = Date.now();
       if (consent) consent.checked = false;
     };
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var value = input ? input.value.trim() : "";
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-        setState("Bitte eine gültige E-Mail-Adresse eingeben.", "err");
-        if (input) input.focus();
-        return;
-      }
+      clearInvalid();
+
+      var practice = practiceInput ? practiceInput.value.trim() : "";
+      var location = locationInput ? locationInput.value.trim() : "";
+      var email = emailInput ? emailInput.value.trim() : "";
+
+      if (practice.length < 2) { return fail("Bitte den Praxisnamen angeben.", practiceInput); }
+      if (location.length < 2) { return fail("Bitte den Standort angeben.", locationInput); }
+      if (!isValidEmail(email)) { return fail("Bitte eine gültige E-Mail-Adresse eingeben.", emailInput); }
       if (consent && !consent.checked) {
         setState("Bitte bestätigen Sie die Datenschutzerklärung.", "err");
         consent.focus();
         return;
       }
-      // honeypot filled → almost certainly a bot: pretend success, store nothing
-      if (honeypot && honeypot.value) { succeed(value); return; }
+
+      // client cooldown: block rapid re-submits from the same browser
+      if (Date.now() - lastSubmit() < COOLDOWN_MS) {
+        return fail("Bitte warten Sie einen Moment, bevor Sie erneut senden.", null);
+      }
+
+      // honeypot filled OR form submitted implausibly fast → treat as bot:
+      // pretend success, store nothing, send nothing.
+      if ((honeypot && honeypot.value) || (Date.now() - readyAt) < MIN_FILL_MS) {
+        succeed(practice);
+        return;
+      }
       // not connected yet → local confirmation so the site still works
-      if (!supabaseReady) { succeed(value); return; }
+      if (!supabaseReady) { succeed(practice); return; }
 
       if (button) button.disabled = true;
       setState("Wird gesendet …", null);
@@ -173,17 +225,26 @@
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          email: value,
+          practice: practice,
+          location: location,
+          email: email,
           source: "landing",
           user_agent: navigator.userAgent
         })
       })
         .then(function (res) {
+          if (res.status === 429) {
+            throw new Error("rate-limited");
+          }
           if (!res.ok) throw new Error("HTTP " + res.status);
-          succeed(value);
+          succeed(practice);
         })
         .catch(function (err) {
-          setState("Senden fehlgeschlagen — bitte später erneut versuchen oder direkt per E-Mail melden.", "err");
+          if (err && err.message === "rate-limited") {
+            setState("Zu viele Anfragen in kurzer Zeit — bitte versuchen Sie es in einigen Minuten erneut.", "err");
+          } else {
+            setState("Senden fehlgeschlagen — bitte später erneut versuchen oder direkt per E-Mail melden.", "err");
+          }
           if (window.console) console.error("Demo request failed:", err);
         })
         .finally(function () {

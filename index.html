@@ -299,8 +299,23 @@
           das Wartezimmer-Board gemeinsam ein.
         </p>
         <form class="cta-form reveal" data-demo-form novalidate>
-          <label class="visually-hidden" for="email">E-Mail-Adresse Ihrer Praxis</label>
-          <input id="email" name="email" type="email" inputmode="email" placeholder="praxis@beispiel.de" autocomplete="email" required />
+          <div class="form-grid">
+            <div class="field">
+              <label for="practice">Praxisname</label>
+              <input id="practice" name="practice" type="text" autocomplete="organization"
+                     maxlength="120" placeholder="Praxis am Rosengarten" required />
+            </div>
+            <div class="field">
+              <label for="location">Standort</label>
+              <input id="location" name="location" type="text" autocomplete="address-level2"
+                     maxlength="120" placeholder="PLZ / Ort" required />
+            </div>
+            <div class="field field-wide">
+              <label for="email">E-Mail-Adresse der Praxis</label>
+              <input id="email" name="email" type="email" inputmode="email"
+                     maxlength="200" placeholder="praxis@beispiel.de" autocomplete="email" required />
+            </div>
+          </div>
           <!-- honeypot: hidden from humans, bots tend to fill it -->
           <input class="visually-hidden" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" data-hp />
           <button class="btn btn-solid-invert" type="submit">Demo anfragen</button>

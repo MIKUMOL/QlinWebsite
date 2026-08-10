@@ -698,24 +698,38 @@ section[id] { scroll-margin-top: 88px; }
 }
 .cta-sub { color: var(--on-dark-muted); font-size: clamp(1.05rem, 1rem + 0.4vw, 1.25rem); max-width: 34rem; }
 .cta-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
+  display: grid;
+  gap: 1.1rem;
   margin: 2rem 0 1rem;
+  max-width: 36rem;
 }
-.cta-form input {
-  flex: 1 1 16rem;
+.cta-form .form-grid { display: grid; gap: 0.9rem; }
+.cta-form .field { display: grid; gap: 0.4rem; }
+.cta-form label {
+  font-family: var(--font-grotesk);
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
+  color: var(--on-dark);
+}
+.cta-form .field input {
+  width: 100%;
   font-family: var(--font-body);
   font-size: 1rem;
-  padding: 0.95rem 1.2rem;
-  border-radius: 999px;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--r);
   border: 1.5px solid var(--line-on-dark);
   background: rgba(255, 255, 255, 0.06);
   color: #fff;
   min-height: 48px;
 }
-.cta-form input::placeholder { color: var(--on-dark-muted); }
-.cta-form input:focus-visible { outline-color: #fff; border-color: transparent; }
+.cta-form .field input::placeholder { color: var(--on-dark-muted); }
+.cta-form .field input:focus-visible { outline-color: #fff; border-color: transparent; }
+.cta-form .field input[aria-invalid="true"] { border-color: #ff9a93; background: rgba(255, 60, 48, 0.08); }
+.cta-form button[type="submit"] { justify-self: start; }
+@media (min-width: 560px) {
+  .cta-form .form-grid { grid-template-columns: 1fr 1fr; }
+  .cta-form .field-wide { grid-column: 1 / -1; }
+}
 .cta-hint { font-size: 0.85rem; color: var(--on-dark-muted); font-family: var(--font-grotesk); }
 .cta-hint[data-state="ok"] { color: #7ee29a; }
 .cta-hint[data-state="err"] { color: #ff9a93; }

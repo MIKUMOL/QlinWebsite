@@ -10,6 +10,7 @@
 //   NOTIFY_FROM      – Absender, Domain muss in Resend verifiziert sein
 //                      (Standard: "Qlin <demo@qlin.info>")
 //   ALLOW_ORIGIN     – erlaubte Herkunft für CORS          (Standard: "*")
+//   RATE_LIMIT_SALT  – Salt zum Hashen der IP fürs Rate-Limit (empfohlen)
 // SUPABASE_URL und SUPABASE_SERVICE_ROLE_KEY werden automatisch bereitgestellt.
 
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
@@ -20,6 +21,7 @@ const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY") ?? "";
 const NOTIFY_TO = Deno.env.get("NOTIFY_TO") ?? "contact@qlin.info";
 const NOTIFY_FROM = Deno.env.get("NOTIFY_FROM") ?? "Qlin <demo@qlin.info>";
 const ALLOW_ORIGIN = Deno.env.get("ALLOW_ORIGIN") ?? "*";
+const RATE_LIMIT_SALT = Deno.env.get("RATE_LIMIT_SALT") ?? "qlin-demo-request";
 
 const cors: Record<string, string> = {
   "Access-Control-Allow-Origin": ALLOW_ORIGIN,
@@ -35,7 +37,59 @@ const json = (body: unknown, status = 200) =>
     headers: { ...cors, "Content-Type": "application/json" },
   });
 
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// Robuste E-Mail-Prüfung (deckt sich mit der Client-Prüfung in script.js).
+const EMAIL_RE = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,24}$/;
+const isValidEmail = (v: string): boolean => {
+  if (!v || v.length > 200) return false;
+  if (!EMAIL_RE.test(v)) return false;
+  if (v.includes("..")) return false;
+  const [local, domain] = v.split("@");
+  if (local.length > 64) return false;
+  if (/^\.|\.$/.test(local)) return false;
+  if (/^[.-]|[.-]$/.test(domain)) return false;
+  return true;
+};
+
+// Client-IP → SHA-256-Hash (mit Salt). Es wird nur der Hash zur
+// Missbrauchs-Vermeidung gespeichert, nie die Klar-IP (DSGVO-freundlich).
+const clientIp = (req: Request): string => {
+  const fwd = req.headers.get("x-forwarded-for") ?? "";
+  const first = fwd.split(",")[0].trim();
+  return first || req.headers.get("x-real-ip") || "";
+};
+const hashIp = async (ip: string): Promise<string> => {
+  const data = new TextEncoder().encode(RATE_LIMIT_SALT + ":" + ip);
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  return Array.from(new Uint8Array(digest))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+};
+
+// Ruft die DB-Funktion demo_rate_limit(p_ip_hash) auf. Gibt true zurück,
+// wenn die Anfrage erlaubt ist, false wenn das Limit erreicht wurde. Fällt
+// bei Fehlern auf "erlaubt" zurück (Verfügbarkeit vor Härte).
+const rateLimitAllows = async (ipHash: string): Promise<boolean> => {
+  if (!SUPABASE_URL || !SERVICE_ROLE) return true;
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/demo_rate_limit`, {
+      method: "POST",
+      headers: {
+        apikey: SERVICE_ROLE,
+        Authorization: `Bearer ${SERVICE_ROLE}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ p_ip_hash: ipHash }),
+    });
+    if (!res.ok) {
+      console.error("rate limit rpc failed:", res.status, await res.text());
+      return true;
+    }
+    return (await res.json()) === true;
+  } catch (e) {
+    console.error("rate limit rpc error:", e);
+    return true;
+  }
+};
 
 const esc = (s: string) =>
   s.replace(
@@ -58,6 +112,8 @@ Deno.serve(async (req: Request) => {
   }
 
   const email = String(payload.email ?? "").trim();
+  const practice = String(payload.practice ?? "").trim().slice(0, 120);
+  const location = String(payload.location ?? "").trim().slice(0, 120);
   const company = String(payload.company ?? "").trim(); // Honeypot
   const source = String(payload.source ?? "landing").slice(0, 60);
   const userAgent = String(
@@ -68,8 +124,27 @@ Deno.serve(async (req: Request) => {
   // vortäuschen, nichts speichern, nichts senden.
   if (company) return json({ ok: true });
 
-  if (!EMAIL_RE.test(email) || email.length > 200) {
+  // Rate-Limit pro (gehashter) IP — die eigentliche Bremse gegen Skripte,
+  // die das Formular im Browser umgehen. Vor jeder teuren Arbeit prüfen.
+  const ip = clientIp(req);
+  if (ip) {
+    const allowed = await rateLimitAllows(await hashIp(ip));
+    if (!allowed) {
+      return json(
+        { error: "Zu viele Anfragen. Bitte in einigen Minuten erneut versuchen." },
+        429,
+      );
+    }
+  }
+
+  if (!isValidEmail(email)) {
     return json({ error: "Bitte eine gültige E-Mail-Adresse eingeben." }, 400);
+  }
+  if (practice.length < 2) {
+    return json({ error: "Bitte den Praxisnamen angeben." }, 400);
+  }
+  if (location.length < 2) {
+    return json({ error: "Bitte den Standort angeben." }, 400);
   }
 
   // 1) Lead speichern (best effort; Service-Role umgeht RLS).
@@ -83,7 +158,7 @@ Deno.serve(async (req: Request) => {
           "Content-Type": "application/json",
           Prefer: "return=minimal",
         },
-        body: JSON.stringify({ email, source, user_agent: userAgent }),
+        body: JSON.stringify({ email, practice, location, source, user_agent: userAgent }),
       });
       if (!res.ok) {
         console.error("DB insert failed:", res.status, await res.text());
@@ -102,6 +177,8 @@ Deno.serve(async (req: Request) => {
   const html = `
     <div style="font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#101828">
       <h2 style="margin:0 0 12px">Neue Demo-Anfrage</h2>
+      <p style="margin:0 0 6px"><strong>Praxis:</strong> ${esc(practice)}</p>
+      <p style="margin:0 0 6px"><strong>Standort:</strong> ${esc(location)}</p>
       <p style="margin:0 0 6px"><strong>E-Mail:</strong>
         <a href="mailto:${esc(email)}">${esc(email)}</a></p>
       <p style="margin:0 0 6px"><strong>Quelle:</strong> ${esc(source)}</p>
@@ -122,7 +199,7 @@ Deno.serve(async (req: Request) => {
         from: NOTIFY_FROM,
         to: [NOTIFY_TO],
         reply_to: email,
-        subject: `Neue Demo-Anfrage — ${email}`,
+        subject: `Neue Demo-Anfrage — ${practice || email}`,
         html,
       }),
     });
