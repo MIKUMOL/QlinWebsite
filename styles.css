@@ -889,6 +889,87 @@ section[id] { scroll-margin-top: 88px; }
 .cta-consent a { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
 
 /* ============================================================
+   INTERAKTIVE DEMOS (Handy-Vorschau + Praxis-Dashboard)
+   ============================================================ */
+
+/* ---- Handy: Check-in-Ablauf ---- */
+.app-btn { transition: background 0.18s ease, transform 0.12s ease, opacity 0.2s ease, box-shadow 0.3s ease; }
+.app-btn:hover { background: var(--brand-dark); }
+.app-btn:active { transform: translateY(1px); }
+.app-btn:disabled { cursor: default; opacity: 0.72; }
+.app-btn[data-done="true"] {
+  background: var(--card); color: var(--brand-dark);
+  border: 1px solid var(--brand-border); opacity: 1;
+}
+
+/* Live-Punkt pulsiert während der eingecheckten Phase */
+.phone[data-live="true"] .app-dot { animation: appDotPulse 1.4s ease-in-out infinite; }
+@keyframes appDotPulse {
+  0%, 100% { box-shadow: 0 0 0 3px var(--green-soft); }
+  50%      { box-shadow: 0 0 0 6px rgba(48, 209, 88, 0.28); }
+}
+
+/* Ring animiert flüssiger, während die Simulation läuft */
+.phone[data-live="true"] .gauge-fill { transition: stroke-dashoffset 0.85s cubic-bezier(0.3, 0.8, 0.3, 1); }
+.gauge-label[data-tone="go"] { color: var(--brand); }
+
+/* „Sie sind dran“-Banner */
+.app-call {
+  display: flex; flex-direction: column; gap: 0.1rem;
+  background: var(--brand); color: #fff;
+  border-radius: 12px; padding: 0.7rem 0.9rem; margin-bottom: 0.7rem;
+  text-align: center; position: relative;
+  animation: callIn 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.app-call::after {
+  content: ""; position: absolute; inset: 0; border-radius: 12px;
+  animation: callPulse 1.8s ease-out infinite; pointer-events: none;
+}
+.app-call strong { font-family: var(--font-grotesk); font-weight: 700; font-size: 1.02rem; }
+.app-call span { font-size: 0.8rem; color: rgba(255, 255, 255, 0.9); }
+@keyframes callIn { from { opacity: 0; transform: translateY(8px) scale(0.98); } to { opacity: 1; transform: none; } }
+@keyframes callPulse { 0% { box-shadow: 0 0 0 0 rgba(0, 122, 255, 0.45); } 100% { box-shadow: 0 0 0 14px rgba(0, 122, 255, 0); } }
+
+/* dezenter Aufmerksamkeits-Nudge auf dem Primärbutton beim ersten Sichtbarwerden */
+.app-btn[data-nudge="true"] { animation: nudgeBlue 2.4s ease-in-out 2; }
+@keyframes nudgeBlue {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 122, 255, 0); }
+  30%      { box-shadow: 0 0 0 6px rgba(0, 122, 255, 0.18); }
+  60%      { box-shadow: 0 0 0 0 rgba(0, 122, 255, 0); }
+}
+
+/* ---- Dashboard: Patienten aufrufen ---- */
+.q-call { transition: background 0.18s ease, transform 0.12s ease, color 0.18s ease, box-shadow 0.3s ease; }
+.q-call:hover { background: #158a38; }
+.q-call:active { transform: translateY(1px); }
+.q-call:disabled { cursor: default; }
+.q-call[data-nudge="true"] { animation: nudgeGreen 2.4s ease-in-out 2; }
+@keyframes nudgeGreen {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(48, 209, 88, 0); }
+  30%      { box-shadow: 0 0 0 5px rgba(48, 209, 88, 0.24); }
+  60%      { box-shadow: 0 0 0 0 rgba(48, 209, 88, 0); }
+}
+
+.dash-queue li { transition: opacity 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+.dash-queue li.is-next { border-color: var(--green-border); box-shadow: 0 0 0 3px var(--green-soft); }
+.dash-queue li.called { opacity: 0.6; }
+.dash-queue li.called .q-avatar { background: var(--green); color: #fff; }
+.dash-queue li.called .q-call {
+  background: transparent; color: var(--green-dark);
+  border: 1px solid var(--green-border);
+}
+
+.dash-foot { display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+.dash-reset {
+  font-family: var(--font-grotesk); font-size: 0.74rem; font-weight: 500;
+  color: var(--green-dark); background: var(--card);
+  border: 1px solid var(--line-strong);
+  padding: 0.3rem 0.75rem; border-radius: 999px;
+  transition: background 0.18s ease;
+}
+.dash-reset:hover { background: var(--bg-2); }
+
+/* ============================================================
    REDUCED MOTION
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {

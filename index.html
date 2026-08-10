@@ -82,11 +82,11 @@
       <!-- Signature: the real Live-Wartezeit panel, rebuilt -->
       <div class="hero-visual reveal" aria-hidden="false">
         <div class="glow" aria-hidden="true"></div>
-        <div class="phone" role="img" aria-label="Qlin App: Live-Wartezeit für einen gebuchten Termin — ruhig, etwa zwölf Minuten bis zum Aufruf, drei Patienten vor Ihnen.">
+        <div class="phone" data-phone role="group" aria-label="Interaktive Demo der Qlin-Patienten-App: Live-Wartezeit. Mit dem Button „Per QR-Code einchecken“ starten Sie die Vorschau.">
           <div class="phone-notch" aria-hidden="true"></div>
           <div class="phone-screen">
             <div class="app-top">
-              <span class="app-dot" aria-hidden="true"></span>
+              <span class="app-dot" data-app-dot aria-hidden="true"></span>
               <span class="app-live">Live-Wartezeit</span>
               <span class="app-time" data-app-time>14:26</span>
             </div>
@@ -100,16 +100,16 @@
                 <circle class="gauge-fill" cx="60" cy="60" r="52" />
               </svg>
               <div class="gauge-center">
-                <span class="gauge-label">Ruhig</span>
-                <span class="gauge-hint">Niedrige Auslastung</span>
+                <span class="gauge-label" data-gauge-label>Ruhig</span>
+                <span class="gauge-hint" data-gauge-hint>Niedrige Auslastung</span>
               </div>
             </div>
 
-            <p class="app-eta"><strong>≈ 12 Min</strong> bis zum Aufruf</p>
+            <p class="app-eta" data-eta><strong>≈ 12 Min</strong> bis zum Aufruf</p>
 
             <div class="app-stats">
               <div class="app-stat">
-                <span class="app-stat-num">3</span>
+                <span class="app-stat-num" data-ahead>3</span>
                 <span class="app-stat-lab">vor Ihnen</span>
               </div>
               <div class="app-stat">
@@ -118,15 +118,22 @@
               </div>
             </div>
 
-            <button class="app-btn" type="button" tabindex="-1">
+            <div class="app-call" data-call-banner hidden>
+              <strong>Sie sind dran!</strong>
+              <span>Bitte kommen Sie zu Raum 2.</span>
+            </div>
+
+            <button class="app-btn" type="button" data-checkin-btn>
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="18" height="18">
                 <rect x="3.5" y="3.5" width="6" height="6" rx="1.4" stroke="currentColor" stroke-width="1.8"/>
                 <rect x="14.5" y="3.5" width="6" height="6" rx="1.4" stroke="currentColor" stroke-width="1.8"/>
                 <rect x="3.5" y="14.5" width="6" height="6" rx="1.4" stroke="currentColor" stroke-width="1.8"/>
                 <path d="M14.5 14.5h3v3m3 0v3h-6v-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
               </svg>
-              Per QR-Code einchecken
+              <span data-checkin-label>Per QR-Code einchecken</span>
             </button>
+
+            <p class="visually-hidden" data-phone-status aria-live="polite"></p>
           </div>
         </div>
       </div>
@@ -204,7 +211,7 @@
         </div>
 
         <!-- Practice dashboard mock -->
-        <div class="dash reveal" role="img" aria-label="Qlin Praxis-Dashboard: Tagesüberblick mit Wartezimmerliste und Aufrufen-Schaltflächen.">
+        <div class="dash reveal" data-dash role="group" aria-label="Interaktive Demo des Qlin-Praxis-Dashboards. Rufen Sie Patienten mit dem Button „Aufrufen“ auf.">
           <div class="dash-top">
             <div>
               <p class="dash-title">Wartezimmer</p>
@@ -214,27 +221,31 @@
           </div>
           <div class="dash-tiles">
             <div class="dash-tile"><span class="dash-tile-num">24</span><span class="dash-tile-lab">Termine heute</span></div>
-            <div class="dash-tile"><span class="dash-tile-num">6</span><span class="dash-tile-lab">eingecheckt</span></div>
+            <div class="dash-tile"><span class="dash-tile-num" data-checked-in>6</span><span class="dash-tile-lab">eingecheckt</span></div>
             <div class="dash-tile"><span class="dash-tile-num">9<small>Min</small></span><span class="dash-tile-lab">Ø Wartezeit</span></div>
           </div>
           <ul class="dash-queue">
-            <li>
+            <li data-q-item>
               <span class="q-avatar" aria-hidden="true">A</span>
-              <span class="q-body"><span class="q-name">Anna K.</span><span class="q-meta">eingecheckt 14:02 · Kontrolle</span></span>
-              <button class="q-call" type="button" tabindex="-1">Aufrufen</button>
+              <span class="q-body"><span class="q-name">Anna K.</span><span class="q-meta" data-q-meta>eingecheckt 14:02 · Kontrolle</span></span>
+              <button class="q-call" type="button" data-q-call aria-label="Anna K. aufrufen">Aufrufen</button>
             </li>
-            <li>
+            <li data-q-item>
               <span class="q-avatar" aria-hidden="true">M</span>
-              <span class="q-body"><span class="q-name">Milan R.</span><span class="q-meta">eingecheckt 14:07 · Blutabnahme</span></span>
-              <button class="q-call" type="button" tabindex="-1">Aufrufen</button>
+              <span class="q-body"><span class="q-name">Milan R.</span><span class="q-meta" data-q-meta>eingecheckt 14:07 · Blutabnahme</span></span>
+              <button class="q-call" type="button" data-q-call aria-label="Milan R. aufrufen">Aufrufen</button>
             </li>
-            <li>
+            <li data-q-item>
               <span class="q-avatar" aria-hidden="true">S</span>
-              <span class="q-body"><span class="q-name">Sofia B.</span><span class="q-meta">eingecheckt 14:11 · Beratung</span></span>
-              <button class="q-call" type="button" tabindex="-1">Aufrufen</button>
+              <span class="q-body"><span class="q-name">Sofia B.</span><span class="q-meta" data-q-meta>eingecheckt 14:11 · Beratung</span></span>
+              <button class="q-call" type="button" data-q-call aria-label="Sofia B. aufrufen">Aufrufen</button>
             </li>
           </ul>
-          <p class="dash-foot">Beispielansicht · echte Daten bleiben in Ihrer Praxis</p>
+          <div class="dash-foot">
+            <span data-dash-note>Beispielansicht · echte Daten bleiben in Ihrer Praxis</span>
+            <button class="dash-reset" type="button" data-dash-reset hidden>Zurücksetzen</button>
+          </div>
+          <p class="visually-hidden" data-dash-status aria-live="polite"></p>
         </div>
       </div>
     </section>

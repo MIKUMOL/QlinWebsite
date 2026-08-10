@@ -254,4 +254,175 @@
     form.addEventListener("input", resetHint);
     if (consent) consent.addEventListener("change", resetHint);
   }
+
+  /* ---- one-time attention nudge when an element scrolls into view ---- */
+  function nudgeOnView(el) {
+    if (!el || reduceMotion || !("IntersectionObserver" in window)) return;
+    var nio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        el.setAttribute("data-nudge", "true");
+        nio.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    nio.observe(el);
+  }
+
+  /* ---- Interactive phone demo: check-in → live queue → "you're up" ---- */
+  (function initPhoneDemo() {
+    var phone = document.querySelector("[data-phone]");
+    if (!phone) return;
+    var btn = phone.querySelector("[data-checkin-btn]");
+    if (!btn) return;
+    var btnLabel = phone.querySelector("[data-checkin-label]");
+    var ahead = phone.querySelector("[data-ahead]");
+    var eta = phone.querySelector("[data-eta]");
+    var gLabel = phone.querySelector("[data-gauge-label]");
+    var gHint = phone.querySelector("[data-gauge-hint]");
+    var gFill = phone.querySelector(".gauge-fill");
+    var banner = phone.querySelector("[data-call-banner]");
+    var status = phone.querySelector("[data-phone-status]");
+
+    var startLabel = btnLabel ? btnLabel.textContent : "Per QR-Code einchecken";
+    var timers = [];
+    var running = false;
+
+    // states from "just checked in" up to "you're being called"
+    var steps = [
+      { ahead: "2", eta: "≈ 8 Min", suffix: " bis zum Aufruf", label: "Ruhig", hint: "Niedrige Auslastung", offset: 60 },
+      { ahead: "1", eta: "≈ 3 Min", suffix: " bis zum Aufruf", label: "Gleich", hint: "Sie sind fast dran", offset: 34 },
+      { ahead: "0", eta: "Jetzt", suffix: " — bitte zum Empfang", label: "Dran!", hint: "Sie werden aufgerufen", offset: 14, called: true }
+    ];
+
+    var clearTimers = function () { timers.forEach(clearTimeout); timers = []; };
+    var say = function (t) { if (status) status.textContent = t; };
+    var setEta = function (num, suffix) { if (eta) eta.innerHTML = "<strong>" + num + "</strong>" + suffix; };
+
+    var applyStep = function (s) {
+      if (ahead) ahead.textContent = s.ahead;
+      setEta(s.eta, s.suffix);
+      if (gLabel) { gLabel.textContent = s.label; if (s.called) gLabel.setAttribute("data-tone", "go"); else gLabel.removeAttribute("data-tone"); }
+      if (gHint) gHint.textContent = s.hint;
+      if (gFill) gFill.style.strokeDashoffset = String(s.offset);
+      if (s.called) {
+        if (banner) banner.hidden = false;
+        if (btn) { btn.disabled = false; btn.setAttribute("data-done", "true"); }
+        if (btnLabel) btnLabel.textContent = "Nochmal ansehen";
+        say("Sie sind an der Reihe. Bitte kommen Sie zum Empfang.");
+        running = false;
+      } else {
+        say(s.ahead + " vor Ihnen · " + s.eta + " bis zum Aufruf.");
+      }
+    };
+
+    var reset = function () {
+      clearTimers();
+      running = false;
+      phone.removeAttribute("data-live");
+      if (banner) banner.hidden = true;
+      if (ahead) ahead.textContent = "3";
+      setEta("≈ 12 Min", " bis zum Aufruf");
+      if (gLabel) { gLabel.textContent = "Ruhig"; gLabel.removeAttribute("data-tone"); }
+      if (gHint) gHint.textContent = "Niedrige Auslastung";
+      if (gFill) gFill.style.strokeDashoffset = "82";
+      if (btn) { btn.disabled = false; btn.removeAttribute("data-done"); }
+      if (btnLabel) btnLabel.textContent = startLabel;
+    };
+
+    var run = function () {
+      running = true;
+      btn.removeAttribute("data-nudge");
+      phone.setAttribute("data-live", "true");
+      if (banner) banner.hidden = true;
+      btn.disabled = true;
+      if (btnLabel) btnLabel.textContent = "Eingecheckt ✓";
+      say("Eingecheckt. Ihre Live-Wartezeit läuft.");
+      var base = reduceMotion ? 650 : 1500;
+      steps.forEach(function (s, i) {
+        timers.push(setTimeout(function () { applyStep(s); }, base * (i + 1)));
+      });
+    };
+
+    btn.addEventListener("click", function () {
+      if (running) return;
+      if (btn.getAttribute("data-done") === "true") { reset(); run(); return; }
+      run();
+    });
+
+    nudgeOnView(btn);
+  })();
+
+  /* ---- Interactive practice dashboard: call patients from the queue ---- */
+  (function initDashDemo() {
+    var dash = document.querySelector("[data-dash]");
+    if (!dash) return;
+    var items = Array.prototype.slice.call(dash.querySelectorAll("[data-q-item]"));
+    if (!items.length) return;
+    var checkedIn = dash.querySelector("[data-checked-in]");
+    var resetBtn = dash.querySelector("[data-dash-reset]");
+    var status = dash.querySelector("[data-dash-status]");
+
+    var startCount = checkedIn ? (parseInt(checkedIn.textContent, 10) || items.length) : items.length;
+    var say = function (t) { if (status) status.textContent = t; };
+    var nameOf = function (li) { var n = li.querySelector(".q-name"); return n ? n.textContent : "Patient"; };
+
+    // remember the original meta text so reset can restore it
+    items.forEach(function (li) {
+      var meta = li.querySelector("[data-q-meta]");
+      if (meta) meta.setAttribute("data-orig", meta.textContent);
+    });
+
+    var markNext = function () {
+      var found = false;
+      items.forEach(function (li) {
+        li.classList.remove("is-next");
+        if (!found && !li.classList.contains("called")) { li.classList.add("is-next"); found = true; }
+      });
+    };
+
+    var updateCount = function () {
+      if (!checkedIn) return;
+      var called = items.filter(function (li) { return li.classList.contains("called"); }).length;
+      checkedIn.textContent = String(Math.max(0, startCount - called));
+    };
+
+    var callPatient = function (li) {
+      if (li.classList.contains("called")) return;
+      li.classList.add("called");
+      var name = nameOf(li);
+      var meta = li.querySelector("[data-q-meta]");
+      var btn = li.querySelector("[data-q-call]");
+      if (meta) meta.textContent = "aufgerufen · gerade eben";
+      if (btn) { btn.textContent = "Aufgerufen ✓"; btn.disabled = true; btn.removeAttribute("data-nudge"); btn.setAttribute("aria-label", name + " wurde aufgerufen"); }
+      updateCount();
+      markNext();
+      if (resetBtn) resetBtn.hidden = false;
+      say(name + " aufgerufen.");
+    };
+
+    items.forEach(function (li) {
+      var btn = li.querySelector("[data-q-call]");
+      if (btn) btn.addEventListener("click", function () { callPatient(li); });
+    });
+
+    if (resetBtn) {
+      resetBtn.addEventListener("click", function () {
+        items.forEach(function (li) {
+          li.classList.remove("called");
+          var meta = li.querySelector("[data-q-meta]");
+          var btn = li.querySelector("[data-q-call]");
+          if (meta && meta.getAttribute("data-orig")) meta.textContent = meta.getAttribute("data-orig");
+          if (btn) { btn.textContent = "Aufrufen"; btn.disabled = false; btn.setAttribute("aria-label", nameOf(li) + " aufrufen"); }
+        });
+        updateCount();
+        markNext();
+        resetBtn.hidden = true;
+        say("Liste zurückgesetzt.");
+      });
+    }
+
+    markNext();
+    var firstBtn = items[0] ? items[0].querySelector("[data-q-call]") : null;
+    nudgeOnView(firstBtn);
+  })();
 })();
