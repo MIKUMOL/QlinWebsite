@@ -69,10 +69,11 @@ Enthaltene Cloudflare-Konfig:
 
 ## Rechtliches
 
-- **Impressum & Datenschutz** sind ausgefüllt (Einzelunternehmen, Hosting: Cloudflare Pages,
-  Auftragsverarbeiter Supabase [EU/Frankfurt] und Resend benannt, Aufsichtsbehörde: LDA
-  Brandenburg). USt-IdNr. ergänzen, sobald vorhanden. Keine Rechtsberatung — für ein
-  medizinnahes Produkt anwaltlich prüfen lassen.
+- **Impressum & Datenschutz** sind ausgefüllt (Einzelunternehmen, Anschrift:
+  c/o POSTFLEX, Greven; Hosting: Cloudflare Pages, Auftragsverarbeiter Supabase
+  [EU/Frankfurt] und Resend benannt, Aufsichtsbehörde: LDI NRW). USt-IdNr. ergänzen,
+  sobald vorhanden. Keine Rechtsberatung — für ein medizinnahes Produkt anwaltlich
+  prüfen lassen.
 - **Demo-Formular** sendet an die Supabase Edge Function `demo-request` (Validierung,
   Honeypot, serverseitiges Rate-Limit über gehashte IPs) und erfordert eine
   Datenschutz-Einwilligung (Checkbox). Leads landen in `demo_requests` (RLS ohne Policies:
