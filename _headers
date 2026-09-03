@@ -1,0 +1,25 @@
+# Cloudflare Pages – HTTP-Header
+# Doku: https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  # Kein Framing / Clickjacking-Schutz
+  X-Frame-Options: DENY
+  # MIME-Sniffing unterbinden
+  X-Content-Type-Options: nosniff
+  # Referrer datensparsam
+  Referrer-Policy: strict-origin-when-cross-origin
+  # Nicht benötigte Browser-Features abschalten
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  # HTTPS erzwingen (1 Jahr). Erst aktivieren, wenn die Seite sicher nur noch per HTTPS läuft.
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  # Strikte CSP: nur eigene Skripte/Styles/Fonts/Bilder; Fetch nur zur Supabase-Function.
+  # Kein Inline-JS/-CSS auf der Seite — daher ohne 'unsafe-inline' möglich.
+  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src https://sipuirjoyeaqrxdbepqr.supabase.co; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+
+# Fonts lange cachen (immutable, da versioniert per Dateiname)
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Bilder/Assets cachen
+/assets/*
+  Cache-Control: public, max-age=86400

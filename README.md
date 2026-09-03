@@ -8,12 +8,16 @@ Statische Landingpage für **Qlin**, ein Terminmanagement-System für Arztpraxen
 | Datei | Zweck |
 |-------|-------|
 | `index.html` | Startseite (semantisches HTML) |
-| `impressum.html` | Impressum (§ 5 DDG) — mit Fill-in-Platzhaltern |
-| `datenschutz.html` | Datenschutzerklärung (DSGVO) — mit Fill-in-Platzhaltern |
+| `impressum.html` | Impressum (§ 5 DDG) |
+| `datenschutz.html` | Datenschutzerklärung (DSGVO) |
 | `styles.css` | Design-System + Layout (Tokens aus `COLORS.md` + Logo-Navy) |
 | `script.js` | Mobile-Menü, Scroll-Reveals, Wartezeit-Gauge, Demo-Formular |
-| `assets/qlin-logo.png` | Logo |
+| `_headers` | Security-Header (CSP, HSTS …) + Cache-Regeln für Cloudflare Pages |
+| `robots.txt`, `sitemap.xml` | SEO-Basics |
+| `assets/qlin-logo.png` | Logo (128 px, Header/Footer/Favicon) |
+| `assets/og-image.png` | Social-Media-Vorschaubild (1200×630, og:image) |
 | `assets/fonts/` | Selbst gehostete Schriftarten (`fonts.css` + `.woff2`) |
+| `supabase/` | Edge Function `demo-request` + SQL-Migrationen (Leads, Rate-Limit) |
 
 ## Design
 
@@ -39,20 +43,40 @@ npx serve .
 
 Dann `http://localhost:5173` öffnen.
 
-## Deployment
+## Deployment (Cloudflare Pages)
 
-Als statische Seite überall hostbar (Vercel, Netlify, GitHub Pages).
-Für Vercel genügt „Import“ ohne Framework-Preset (Output = Projektwurzel).
+Statische Seite, **kein Build-Step**. In Cloudflare Pages:
 
-## Rechtliches / vor dem Livegang
+- **Framework preset:** None
+- **Build command:** *(leer lassen)*
+- **Build output directory:** `/` (Projektwurzel — bzw. `qlin-website`, falls das
+  Repo-Root eine Ebene höher liegt)
 
-- **Impressum & Datenschutz** liegen als eigene Seiten vor und sind im Footer verlinkt.
-  Alle offenen Angaben sind im Text **farbig als `[Platzhalter]` markiert** (Name, Anschrift,
-  Kontakt, Hosting-Anbieter, zuständige Aufsichtsbehörde …) — vor dem Livegang ausfüllen und
-  die Markierung entfernen. Aufgebaut für: Einzelunternehmen, reines Softwareunternehmen,
-  USt-IdNr. noch offen. Keine Rechtsberatung — für ein medizinnahes Produkt anwaltlich prüfen lassen.
-- **Demo-Formular** verarbeitet aktuell nur clientseitig (kein Backend) und erfordert eine
-  Datenschutz-Einwilligung (Checkbox). Für echte Leads an ein Formular-Backend / eine Edge
-  Function anbinden und den Empfänger in der Datenschutzerklärung konkret benennen.
-- **Keine Cookies / kein Tracking** → bewusst kein Cookie-Banner. Wird später Analytics ergänzt,
-  ist ein Consent-Banner (§ 25 TDDDG) nötig.
+Enthaltene Cloudflare-Konfig:
+
+- `_headers` — Security-Header (X-Frame-Options, HSTS, Permissions-Policy …) + Cache-Regeln.
+- Clean-URLs (`/impressum` statt `/impressum.html`) macht Pages automatisch.
+
+**Nach dem Livegang prüfen:**
+
+- Custom Domain in Pages hinterlegen (Apex **und** `www`); für die kanonische Variante
+  eine Redirect-Rule `www → Apex` (oder umgekehrt) anlegen.
+- Die Edge Function `demo-request` erlaubt als CORS-Origin standardmäßig
+  `https://qlin.info`. Für Tests auf einer anderen Domain (z. B. `*.pages.dev`-Preview)
+  das Supabase-Secret `ALLOW_ORIGIN` entsprechend setzen.
+- HSTS in `_headers` ist aktiv (max-age 1 Jahr) — erst so lassen, wenn die Seite dauerhaft
+  nur noch per HTTPS läuft.
+
+## Rechtliches
+
+- **Impressum & Datenschutz** sind ausgefüllt (Einzelunternehmen, Hosting: Cloudflare Pages,
+  Auftragsverarbeiter Supabase [EU/Frankfurt] und Resend benannt, Aufsichtsbehörde: LDA
+  Brandenburg). USt-IdNr. ergänzen, sobald vorhanden. Keine Rechtsberatung — für ein
+  medizinnahes Produkt anwaltlich prüfen lassen.
+- **Demo-Formular** sendet an die Supabase Edge Function `demo-request` (Validierung,
+  Honeypot, serverseitiges Rate-Limit über gehashte IPs) und erfordert eine
+  Datenschutz-Einwilligung (Checkbox). Leads landen in `demo_requests` (RLS ohne Policies:
+  nur Service-Role), Benachrichtigung per Resend.
+- **Keine Cookies / kein Tracking** → bewusst kein Cookie-Banner. Der localStorage-Eintrag
+  des Formulars (Doppelsende-Schutz) ist in der Datenschutzerklärung erläutert
+  (§ 25 Abs. 2 Nr. 2 TDDDG). Wird später Analytics ergänzt, ist ein Consent-Banner nötig.

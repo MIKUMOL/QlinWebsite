@@ -9,7 +9,8 @@
 //   NOTIFY_TO        – Empfänger der Benachrichtigung     (Standard: contact@qlin.info)
 //   NOTIFY_FROM      – Absender, Domain muss in Resend verifiziert sein
 //                      (Standard: "Qlin <demo@qlin.info>")
-//   ALLOW_ORIGIN     – erlaubte Herkunft für CORS          (Standard: "*")
+//   ALLOW_ORIGIN     – erlaubte Herkunft für CORS (Standard: "https://qlin.info";
+//                      für Tests z. B. auf "*" oder die Preview-Domain setzen)
 //   RATE_LIMIT_SALT  – Salt zum Hashen der IP fürs Rate-Limit (empfohlen)
 // SUPABASE_URL und SUPABASE_SERVICE_ROLE_KEY werden automatisch bereitgestellt.
 
@@ -20,7 +21,7 @@ const SERVICE_ROLE = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY") ?? "";
 const NOTIFY_TO = Deno.env.get("NOTIFY_TO") ?? "contact@qlin.info";
 const NOTIFY_FROM = Deno.env.get("NOTIFY_FROM") ?? "Qlin <demo@qlin.info>";
-const ALLOW_ORIGIN = Deno.env.get("ALLOW_ORIGIN") ?? "*";
+const ALLOW_ORIGIN = Deno.env.get("ALLOW_ORIGIN") ?? "https://qlin.info";
 const RATE_LIMIT_SALT = Deno.env.get("RATE_LIMIT_SALT") ?? "qlin-demo-request";
 
 const cors: Record<string, string> = {

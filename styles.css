@@ -123,6 +123,9 @@ ul, ol { list-style: none; padding: 0; }
   clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
 
+/* hidden-Attribut gewinnt auch gegen Klassen mit eigenem display (z. B. .app-call) */
+[hidden] { display: none !important; }
+
 .skip-link {
   position: fixed; top: 0; left: 50%; transform: translate(-50%, -120%);
   z-index: 200; background: var(--navy-deep); color: #fff;
