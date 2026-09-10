@@ -983,3 +983,129 @@ section[id] { scroll-margin-top: 88px; }
   .btn:hover, .feature:hover { transform: none; }
   *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
+
+/* ============================================================
+   FAQ (Startseite) — <details>/<summary>, kein JavaScript noetig
+   ============================================================ */
+.faq-inner { display: grid; gap: clamp(2rem, 5vw, 3rem); }
+.faq-head .section-lead { margin-top: 1rem; }
+.faq-head .section-lead a {
+  color: var(--brand-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.faq-head .section-lead a:hover { color: var(--text); }
+
+.faq-list { border-top: 1px solid var(--line); }
+
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-item summary {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.15rem 0;
+  cursor: pointer;
+  list-style: none;
+  transition: color 0.18s ease;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary h3 {
+  font-family: var(--font-grotesk);
+  font-weight: 500;
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.12rem);
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  color: var(--text);
+}
+.faq-item summary:hover h3 { color: var(--brand-dark); }
+.faq-item summary:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Plus-Zeichen, das im geoeffneten Zustand zum Minus wird */
+.faq-item summary::after {
+  content: "";
+  flex: none;
+  width: 13px;
+  height: 13px;
+  margin-top: 0.45rem;
+  background:
+    linear-gradient(var(--muted), var(--muted)) center / 100% 1.5px no-repeat,
+    linear-gradient(var(--muted), var(--muted)) center / 1.5px 100% no-repeat;
+  transition: transform 0.25s ease, background-size 0.25s ease;
+}
+.faq-item[open] summary::after {
+  background:
+    linear-gradient(var(--brand-dark), var(--brand-dark)) center / 100% 1.5px no-repeat,
+    linear-gradient(var(--brand-dark), var(--brand-dark)) center / 1.5px 100% no-repeat;
+  background-size: 100% 1.5px, 0 100%;
+  transform: rotate(180deg);
+}
+
+.faq-item > p {
+  max-width: 60ch;
+  padding-bottom: 1.4rem;
+  color: var(--text-2);
+  line-height: 1.72;
+}
+
+@media (min-width: 900px) {
+  .faq-inner { grid-template-columns: 0.85fr 1.15fr; gap: 4rem; align-items: start; }
+  .faq-head { position: sticky; top: 96px; }
+}
+
+/* ============================================================
+   DOKUMENT-SEITEN (Funktionen / Ueber Qlin / Wartezeit-Leitfaden)
+   ============================================================ */
+.doc-lede {
+  font-size: clamp(1.06rem, 1rem + 0.4vw, 1.25rem);
+  line-height: 1.62;
+  color: var(--text-2);
+  margin-bottom: 2rem;
+}
+
+.fact-list {
+  display: grid;
+  gap: 0;
+  margin: 0 0 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.fact-list > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.15rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.fact-list dt {
+  font-family: var(--font-grotesk);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.fact-list dd { margin: 0; color: var(--text-2); }
+@media (min-width: 620px) {
+  .fact-list > div { grid-template-columns: 15rem 1fr; gap: 1.5rem; align-items: baseline; }
+  .fact-list dt { padding-top: 0.12rem; }
+}
+
+.doc-quote {
+  margin: 0 0 1.2rem;
+  padding: 1rem 0 1rem 1.35rem;
+  border-left: 2px solid var(--brand);
+  color: var(--text-2);
+  line-height: 1.7;
+}
+
+.prose ol {
+  list-style: decimal;
+  padding-left: 1.35em;
+  margin-bottom: 1.2em;
+  display: grid;
+  gap: 0.4em;
+}

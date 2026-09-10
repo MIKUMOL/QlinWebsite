@@ -11,6 +11,40 @@
   <link rel="icon" type="image/png" href="assets/qlin-logo.png" />
   <link rel="stylesheet" href="assets/fonts/fonts.css" />
   <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://qlin.info/#organization",
+        "name": "Qlin",
+        "legalName": "Maximilian Kurth (Einzelunternehmen)",
+        "url": "https://qlin.info/",
+        "email": "contact@qlin.info",
+        "logo": "https://qlin.info/assets/qlin-logo.png",
+        "founder": { "@type": "Person", "@id": "https://qlin.info/#founder", "name": "Maximilian Kurth" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "c/o POSTFLEX PFX-960-770, Emsdettener Stra\u00dfe 10",
+          "postalCode": "48268",
+          "addressLocality": "Greven",
+          "addressRegion": "Nordrhein-Westfalen",
+          "addressCountry": "DE"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://qlin.info/#website",
+        "url": "https://qlin.info/",
+        "name": "Qlin",
+        "inLanguage": "de-DE",
+        "publisher": { "@id": "https://qlin.info/#organization" }
+      }
+    ]
+  }
+  </script>
+
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -25,6 +59,7 @@
       <nav class="nav-desktop" aria-label="Hauptnavigation">
         <a href="index.html#patienten">Für Patienten</a>
         <a href="index.html#praxis">Für Praxen</a>
+        <a href="funktionen.html">Funktionen</a>
         <a href="index.html#ablauf">Ablauf</a>
         <a href="index.html#sicherheit">Sicherheit</a>
       </nav>
@@ -41,6 +76,7 @@
       <nav aria-label="Mobile Navigation">
         <a href="index.html#patienten">Für Patienten</a>
         <a href="index.html#praxis">Für Praxen</a>
+        <a href="funktionen.html">Funktionen</a>
         <a href="index.html#ablauf">Ablauf</a>
         <a href="index.html#sicherheit">Sicherheit</a>
         <a class="mobile-cta" href="index.html#kontakt">Demo anfragen</a>
@@ -139,6 +175,7 @@
       </div>
       <nav class="footer-col" aria-label="Produkt">
         <p class="footer-h">Produkt</p>
+        <a href="funktionen.html">Funktionen</a>
         <a href="index.html#patienten">Für Patienten</a>
         <a href="index.html#praxis">Für Praxen</a>
         <a href="index.html#ablauf">Ablauf</a>
@@ -150,14 +187,16 @@
         <a href="datenschutz.html">Datenschutz</a>
         <a href="index.html#kontakt">Kontakt</a>
       </nav>
-      <div class="footer-col">
-        <p class="footer-h">Sprache</p>
-        <p class="footer-meta">Deutsch · English</p>
-        <p class="footer-meta">Made in DACH</p>
-      </div>
+      <nav class="footer-col" aria-label="Wissen">
+        <p class="footer-h">Wissen</p>
+        <a href="wartezeit-reduzieren.html">Wartezeit reduzieren</a>
+        <a href="ueber-qlin.html">Über Qlin</a>
+        <a href="index.html#faq">Häufige Fragen</a>
+      </nav>
     </div>
     <div class="shell footer-base">
       <p>© <span data-year>2026</span> Qlin</p>
+      <p>Deutsch · English · Made in DACH</p>
       <p>Kein Ersatz für ärztlichen Rat.</p>
     </div>
   </footer>

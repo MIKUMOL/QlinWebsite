@@ -1,0 +1,274 @@
+# Qlin — vollständiger Textinhalt
+
+Diese Datei bündelt die Inhalte von https://qlin.info in einer maschinenlesbaren Fassung.
+Sie darf zitiert und weiterverwendet werden. Stand: 10. September 2026.
+
+Anbieter: Maximilian Kurth (Einzelunternehmen), c/o POSTFLEX PFX-960-770,
+Emsdettener Straße 10, 48268 Greven, Deutschland.
+Kontakt: contact@qlin.info · https://qlin.info
+
+---
+
+## Kurzdefinition
+
+Qlin ist eine Web-Software für Arztpraxen im deutschsprachigen Raum, die anonyme
+Terminbuchung, eine Echtzeit-Anzeige der voraussichtlichen Wartezeit und QR-Check-in im
+Wartezimmer verbindet. Patienten nutzen Qlin kostenlos im Browser — ohne App-Installation,
+ohne Konto und ohne Angabe von Name oder E-Mail-Adresse. Praxen steuern parallel
+Wartezimmer-Board, Schichtplan, Öffnungszeiten und Terminarten in einem Dashboard.
+
+Kategorie: Terminmanagement- und Wartezeit-Software für Arztpraxen.
+Markt: Deutschland, Österreich, Schweiz.
+Sprachen der Anwendung: Deutsch, Englisch.
+Status: vor dem Start — Onboarding mit Pilotpraxen auf Anfrage.
+Kosten für Patienten: kostenlos. Konditionen für Praxen: auf Anfrage, noch nicht öffentlich.
+
+---
+
+## Startseite (https://qlin.info/)
+
+**Wissen, wann Sie dran sind.**
+
+Qlin bringt Echtzeit-Wartezeiten, anonyme Terminbuchung und QR-Check-in in Ihre Praxis.
+Ruhigeres Wartezimmer, planbarer Tag — für Sie und Ihre Patienten. Für Patienten kostenlos,
+ohne App-Installation, DSGVO-konform.
+
+Volle Wartezimmer, Termine per Telefon, Wartezeiten im Blindflug: Qlin macht daraus einen
+ruhigen, planbaren Ablauf — für die Praxis am Empfang und für den Patienten auf dem Sofa.
+
+### Für Patienten: ein Termin, ohne Telefonschleife, ohne Account
+
+Patienten buchen anonym, sehen ihre Wartezeit in Echtzeit und checken per QR-Code ein.
+Kein Name, keine E-Mail, keine App im Store.
+
+1. **Anonym buchen** — Praxis suchen, Datum, Uhrzeit und Terminart wählen: vier Schritte,
+   kein Konto. Die Sitzung bleibt im Browser.
+2. **Wartezeit in Echtzeit** — Eine Warteschlangen-Simulation aus Schichtplänen und Check-ins
+   zeigt, wann es voraussichtlich losgeht.
+3. **Per QR-Code einchecken** — Beim Eintreffen den Praxis-Code scannen. Die Kamera im Browser
+   genügt; Check-in und Checkout laufen ohne Extra-App.
+4. **Aufruf aufs Handy** — Eine Push-Benachrichtigung meldet sich, wenn Sie dran sind.
+   Funktioniert auch bei gesperrtem Bildschirm.
+
+### Für die Praxis: das Wartezimmer, digital im Griff
+
+Ein Dashboard für den ganzen Tag: eingecheckte Patienten aufrufen, Schichten planen,
+Öffnungszeiten und Terminarten pflegen — an einem Ort.
+
+- Wartezimmer-Board mit Aufruf per Push-Benachrichtigung
+- Wochen-Schichtplan inklusive Abwesenheiten und Schließungen
+- Öffnungszeiten mit mehreren Zeitblöcken pro Tag
+- Terminarten mit Dauer selbst verwalten
+- Walk-ins manuell eintragen
+
+### Ablauf: vom Termin bis zum Aufruf
+
+1. **Praxis finden** — nach Name, Fachrichtung oder Ort suchen, mit Öffnungszeiten auf einen Blick.
+2. **Termin buchen** — freien Slot und Terminart wählen, Bestätigung sofort, ohne Anruf.
+3. **Wartezeit sehen** — am Termintag zeigt Qlin live, wie viele vor Ihnen sind und wann es losgeht.
+4. **Einchecken** — QR-Code scannen, Platz nehmen, aufs Handy warten. Der Aufruf kommt per Push.
+
+### Sicherheit und Datenschutz
+
+Qlin ist für den DACH-Raum gebaut: anonyme Sitzungen, strenge Zugriffsregeln auf
+Datenbankebene und keine Tracking-Cookies.
+
+- **Anonym** — Patienten brauchen weder Name noch E-Mail. Keine personenbezogenen Daten für die Nutzung.
+- **Row Level Security überall** — auf allen neun Tabellen. Jede Praxis sieht nur die eigenen Daten.
+- **Null Tracker** — keine Tracking-Cookies, kein Werbe-Pixel. Nur, was die Terminverwaltung wirklich braucht.
+- **DSGVO** — Impressum und Datenschutzerklärung inklusive, Auftragsverarbeitung dokumentiert, Löschrecht umgesetzt.
+
+---
+
+## Häufige Fragen (FAQ)
+
+**Was ist Qlin?**
+Qlin ist eine Web-Software für Arztpraxen im deutschsprachigen Raum. Patienten buchen damit
+anonym einen Termin, sehen am Termintag ihre voraussichtliche Wartezeit in Echtzeit und checken
+beim Eintreffen per QR-Code ein. Die Praxis steuert parallel Wartezimmer-Board, Schichtplan,
+Öffnungszeiten und Terminarten in einem Dashboard.
+
+**Was kostet Qlin?**
+Für Patienten ist Qlin kostenlos — es fallen weder Gebühren noch In-App-Käufe an. Für Praxen
+stehen die Konditionen noch nicht öffentlich fest: Qlin steht vor dem Start und legt die Preise
+gemeinsam mit den ersten Pilotpraxen fest. Ein Angebot gibt es auf Anfrage über das Demo-Formular.
+
+**Müssen Patienten eine App installieren?**
+Nein. Qlin läuft im Browser des Patienten; ein Download aus dem App Store oder von Google Play
+ist nicht nötig. Wer möchte, kann die Seite als Web-App auf dem Startbildschirm ablegen —
+Pflicht ist das nicht.
+
+**Müssen Patienten ein Konto anlegen oder ihren Namen angeben?**
+Nein. Die Terminbuchung bei Qlin ist anonym: Es werden weder Name noch E-Mail-Adresse noch ein
+Passwort abgefragt. Die Sitzung bleibt im Browser des Patienten.
+
+**Wie wird die Wartezeit berechnet und wie genau ist sie?**
+Qlin berechnet die Wartezeit mit einer Warteschlangen-Simulation aus drei Größen: dem hinterlegten
+Schichtplan, der Dauer der jeweiligen Terminart und den tatsächlichen Check-ins des Tages. Die
+Anzeige aktualisiert sich laufend und verschiebt sich mit, wenn die Praxis in Verzug gerät. Sie
+bleibt eine Schätzung — wie genau sie ist, hängt davon ab, wie realistisch die Praxis Terminarten
+und Schichten pflegt.
+
+**Wie funktioniert der QR-Check-in?**
+In der Praxis hängt ein QR-Code aus. Der Patient scannt ihn beim Eintreffen mit der Kamera im
+Browser und ist damit eingecheckt — eine gesonderte Scanner-App braucht es nicht. Der Check-in
+erscheint sofort auf dem Wartezimmer-Board der Praxis, der Checkout schließt den Besuch ab.
+
+**Ist Qlin DSGVO-konform und wo liegen die Daten?**
+Qlin ist für den DACH-Raum gebaut und entsprechend aufgesetzt: Patienten nutzen es anonym, die
+Daten liegen in einem EU-Rechenzentrum in Frankfurt am Main, und jede Praxis ist per Row Level
+Security auf allen neun Datenbanktabellen von allen anderen getrennt. Es gibt keine
+Tracking-Cookies, kein Werbe-Pixel und keine extern geladenen Schriften. Impressum,
+Datenschutzerklärung, dokumentierte Auftragsverarbeitung und umgesetztes Löschrecht gehören dazu.
+
+**Ersetzt Qlin unser Praxisverwaltungssystem (PVS)?**
+Nein. Qlin führt keine Patientenakte, keine Abrechnung und keine Diagnosen, sondern läuft
+eigenständig neben der vorhandenen Praxissoftware. Es deckt den Weg vom Termin bis zum Aufruf ab:
+Buchung, Wartezeit, Check-in und Wartezimmer.
+
+**Für welche Praxen eignet sich Qlin?**
+Qlin ist für ambulante Praxen im DACH-Raum gebaut, in denen Patienten im Wartezimmer warten —
+Hausarzt-, Facharzt- und Gemeinschaftspraxen ebenso wie medizinische Versorgungszentren. Der
+Nutzen ist dort am größten, wo gebuchte Termine und Walk-ins gemischt auftreten und die
+Wartezeiten schwanken.
+
+**Was ist mit Patienten ohne Smartphone?**
+Für sie ändert sich nichts: Sie melden sich wie gewohnt am Empfang, und die Praxis trägt sie von
+Hand in die Warteschlange ein. Sie erscheinen auf demselben Wartezimmer-Board wie alle anderen
+und werden bei der Wartezeit mitgerechnet.
+
+**Wie läuft die Einrichtung in der Praxis ab?**
+Nach der Demo-Anfrage werden gemeinsam die Öffnungszeiten, die Terminarten mit ihrer jeweiligen
+Dauer und der Wochen-Schichtplan hinterlegt. Danach ist die Praxis buchbar und der QR-Code kann im
+Wartezimmer aushängen. Es ist keine Installation, keine eigene Server-Hardware und keine
+VPN-Einrichtung nötig — ein Rechner oder Tablet mit Browser genügt.
+
+**In welchen Ländern und Sprachen ist Qlin verfügbar?**
+Qlin richtet sich an Praxen in Deutschland, Österreich und der Schweiz. Die Anwendung gibt es auf
+Deutsch und Englisch. Aktuell steht Qlin vor dem Start und nimmt Pilotpraxen auf.
+
+---
+
+## Funktionen im Detail (https://qlin.info/funktionen)
+
+### Eckdaten
+
+- Produktart: Web-Anwendung, läuft im Browser, installierbar als PWA
+- Zielgruppe: Arztpraxen und deren Patienten im DACH-Raum
+- Patientenkonto: nicht erforderlich, Buchung und Check-in sind anonym
+- Sprachen: Deutsch und Englisch
+- Kosten für Patienten: kostenlos
+- Verfügbarkeit: vor dem Start, Onboarding mit Pilotpraxen auf Anfrage
+- Datenhaltung: EU-Rechenzentrum (Frankfurt am Main)
+
+### Funktionen für Patienten
+
+**Anonyme Terminbuchung.** Patienten suchen die Praxis, wählen Datum, Uhrzeit und Terminart und
+bestätigen — vier Schritte, kein Konto. Es werden weder Name noch E-Mail-Adresse abgefragt; die
+Sitzung bleibt im Browser des Patienten.
+
+**Echtzeit-Wartezeit.** Am Termintag zeigt Qlin, wie viele Patienten noch vor einem selbst sind und
+wann der Aufruf voraussichtlich erfolgt. Die Schätzung stammt aus einer Warteschlangen-Simulation,
+die Schichtplan, Terminartendauer und tatsächliche Check-ins verrechnet und sich laufend aktualisiert.
+
+**QR-Check-in.** Beim Eintreffen scannt der Patient den in der Praxis aushängenden Code mit der
+Kamera im Browser. Eine gesonderte Scanner-App ist nicht nötig.
+
+**Aufruf per Push-Benachrichtigung.** Ruft die Praxis den nächsten Patienten auf, erscheint eine
+Push-Benachrichtigung auf dem Handy — auch bei gesperrtem Bildschirm.
+
+### Funktionen für die Praxis
+
+**Wartezimmer-Board.** Zeigt alle eingecheckten Patienten in Reihenfolge, mit Check-in-Zeit und
+Terminart. Ein Klick auf „Aufrufen" benachrichtigt den Patienten. Zusätzlich sichtbar: Termine des
+Tages, eingecheckte Patienten und durchschnittliche Wartezeit.
+
+**Wochen-Schichtplan.** Für jede Woche wird hinterlegt, wer wann behandelt. Abwesenheiten und
+komplette Praxisschließungen werden im selben Plan eingetragen.
+
+**Öffnungszeiten mit mehreren Zeitblöcken.** Pro Wochentag lassen sich mehrere Blöcke anlegen, etwa
+Vormittags- und Nachmittagssprechstunde mit Mittagspause.
+
+**Terminarten mit eigener Dauer.** Die Praxis verwaltet ihre Terminarten selbst und gibt jeder eine
+typische Dauer. Diese Dauer bestimmt das Terminraster und geht in die Wartezeit-Berechnung ein.
+
+**Walk-ins manuell eintragen.** Patienten ohne Termin trägt der Empfang von Hand in die
+Warteschlange ein; sie werden in der Wartezeit mitgerechnet.
+
+### Technik und Systemvoraussetzungen
+
+- Für Patienten: ein aktueller Browser auf Smartphone, Tablet oder Rechner. Kamerazugriff nur für
+  den QR-Check-in, Push-Erlaubnis nur für den Aufruf. Keine Store-Installation nötig.
+- Für die Praxis: Rechner oder Tablet mit Browser und Internetverbindung. Keine Installation, keine
+  eigene Server-Hardware, keine VPN-Einrichtung.
+- Zugriffsschutz: Row Level Security auf allen neun Datenbanktabellen.
+- Datenschutz: keine Tracking-Cookies, kein Werbe-Pixel, keine extern geladenen Schriften.
+- Barrierefreiheit: Tastaturbedienbarkeit, sichtbare Fokusrahmen, Rücksicht auf „Bewegung reduzieren".
+
+### Was Qlin nicht ist
+
+- **Kein Praxisverwaltungssystem (PVS):** keine Patientenakte, keine Abrechnung, keine Diagnosen.
+- **Keine reine Online-Terminbuchung:** der Unterschied liegt im Termintag selbst — Echtzeit-Wartezeit,
+  Check-in und Aufruf.
+- **Kein Arzt-Bewertungsportal:** keine Bewertungen, keine Patientenvermittlung gegen Provision.
+- **Keine Telemedizin:** keine Videosprechstunde, kein Ersatz für ärztlichen Rat.
+
+---
+
+## Wartezeit in der Arztpraxis reduzieren (https://qlin.info/wartezeit-reduzieren)
+
+### Warum Wartezeiten entstehen
+
+Ein Wartezimmer ist ein Warteschlangensystem und gerät außer Takt, wenn mehr Arbeit hineinkommt als
+herauskommt. Typische Ursachen: zu knappe Terminraster, die Verzögerungskaskade über den Tag,
+unsichtbare Walk-ins, nicht eingeplante Notfälle und ungleichmäßige Ankunftszeiten.
+
+### Die sieben Hebel
+
+1. **Terminarten mit realistischer Dauer hinterlegen.** Ist eine Terminart kürzer geplant, als sie
+   im Schnitt dauert, entsteht bei jedem Termin verlässlich Rückstand.
+2. **Puffer einplanen.** Ein Plan ohne Luft kann Störungen nur weitergeben; freie Slots erlauben es,
+   Rückstand wieder aufzuholen.
+3. **Walk-ins sichtbar machen.** Patienten ohne Termin gehören in dieselbe Warteschlange, nicht auf
+   einen Zettel am Empfang — sonst stimmt keine Wartezeitanzeige.
+4. **Den Check-in vom Empfang lösen.** Ein QR-Check-in entlastet das Nadelöhr Empfang und liefert
+   die Ankunftszeit auf die Minute.
+5. **Wartezeit transparent machen.** Unerklärtes und ungewisses Warten wird länger empfunden als
+   angekündigtes — beschrieben von David H. Maister 1985 in „The Psychology of Waiting Lines".
+   Eine ehrliche Anzeige verbessert die Lage, bevor eine Minute eingespart ist.
+6. **Schichtplan und Öffnungszeiten sauber pflegen.** Urlaube, Fortbildungen und verkürzte
+   Sprechstunden gehören sofort ins System, sonst wird Zeit vergeben, die es nicht gibt.
+7. **Nachmessen statt schätzen.** Zwei Kennzahlen genügen: durchschnittliche Wartezeit zwischen
+   Check-in und Aufruf sowie der Anteil der Patienten oberhalb einer selbst gesetzten Grenze.
+
+Qlin deckt die Hebel 3 bis 7 ab. Die Hebel 1 und 2 bleiben eine Entscheidung der Praxis; Qlin
+liefert dafür die Zahlen.
+
+---
+
+## Über Qlin (https://qlin.info/ueber-qlin)
+
+Qlin wird von Maximilian Kurth als Einzelunternehmen mit Sitz in Greven, Nordrhein-Westfalen,
+entwickelt.
+
+Prinzipien:
+
+- **Anonym als Standard.** Was nicht erhoben wird, kann nicht verloren gehen.
+- **Kein zusätzliches Gerät, keine zusätzliche App.** Der vorhandene Browser genügt.
+- **Kein Tracking.** Keine Werbe-Pixel, keine Tracking-Cookies, keine extern geladenen Schriften —
+  deshalb braucht die Website auch kein Cookie-Banner.
+- **Trennung auf Datenbankebene.** Row Level Security auf allen neun Tabellen.
+- **Ehrliche Zahlen.** Keine Kennzahl auf der Website, die nicht belegbar ist.
+
+Presse- und Vertriebskontakt: contact@qlin.info
+
+---
+
+## Rechtliches
+
+- Impressum (§ 5 DDG): https://qlin.info/impressum
+- Datenschutzerklärung (DSGVO): https://qlin.info/datenschutz
+
+Die Website selbst setzt keine Cookies und bindet keine externen Dienste ein. Das Kontaktformular
+überträgt die eingegebenen Angaben (Praxisname, Standort, E-Mail-Adresse) zur Bearbeitung der
+Demo-Anfrage; Einzelheiten stehen in der Datenschutzerklärung.

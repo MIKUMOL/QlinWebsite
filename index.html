@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Qlin — Wissen, wann Sie dran sind. Terminmanagement für Arztpraxen</title>
   <meta name="description" content="Qlin bringt Echtzeit-Wartezeiten, anonyme Terminbuchung und QR-Check-in in Ihre Praxis. Ruhigeres Wartezimmer, planbarer Tag — ohne App, DSGVO-konform." />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
   <meta name="theme-color" content="#0e2c4d" />
   <link rel="canonical" href="https://qlin.info/" />
 
@@ -26,6 +27,261 @@
   <link rel="preload" href="assets/fonts/NGSwv5HMAFg6IuGlBNMjxLsH8ag.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="assets/fonts/fonts.css" />
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Strukturierte Daten: ein Entity-Graph über alle Seiten hinweg (stabile @id-Anker). -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://qlin.info/#organization",
+        "name": "Qlin",
+        "legalName": "Maximilian Kurth (Einzelunternehmen)",
+        "alternateName": "Qlin – Terminmanagement für Arztpraxen",
+        "description": "Qlin entwickelt eine Web-Software für Arztpraxen im DACH-Raum, die anonyme Terminbuchung, Echtzeit-Wartezeit und QR-Check-in verbindet.",
+        "url": "https://qlin.info/",
+        "email": "contact@qlin.info",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://qlin.info/assets/qlin-logo.png",
+          "width": 128,
+          "height": 128
+        },
+        "image": "https://qlin.info/assets/og-image.png",
+        "founder": {
+          "@type": "Person",
+          "@id": "https://qlin.info/#founder",
+          "name": "Maximilian Kurth"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "c/o POSTFLEX PFX-960-770, Emsdettener Straße 10",
+          "postalCode": "48268",
+          "addressLocality": "Greven",
+          "addressRegion": "Nordrhein-Westfalen",
+          "addressCountry": "DE"
+        },
+        "areaServed": [
+          { "@type": "Country", "name": "Deutschland" },
+          { "@type": "Country", "name": "Österreich" },
+          { "@type": "Country", "name": "Schweiz" }
+        ],
+        "knowsAbout": [
+          "Terminmanagement für Arztpraxen",
+          "Wartezeitmanagement im Wartezimmer",
+          "Anonyme Online-Terminbuchung",
+          "QR-Check-in in der Arztpraxis",
+          "DSGVO-konforme Praxissoftware"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Vertrieb und Presse",
+          "email": "contact@qlin.info",
+          "availableLanguage": ["de", "en"]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://qlin.info/#website",
+        "url": "https://qlin.info/",
+        "name": "Qlin",
+        "description": "Terminmanagement mit Echtzeit-Wartezeit, anonymer Buchung und QR-Check-in für Arztpraxen im DACH-Raum.",
+        "inLanguage": "de-DE",
+        "publisher": { "@id": "https://qlin.info/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://qlin.info/#software",
+        "name": "Qlin",
+        "url": "https://qlin.info/",
+        "applicationCategory": "HealthApplication",
+        "applicationSubCategory": "Terminmanagement und Wartezeitanzeige für Arztpraxen",
+        "operatingSystem": "Web — läuft in jedem aktuellen Browser (Android, iOS, Windows, macOS)",
+        "browserRequirements": "Aktueller Browser mit JavaScript. Kamerazugriff nur für den QR-Check-in, Push-Benachrichtigungen nur für den Aufruf.",
+        "description": "Qlin verbindet anonyme Terminbuchung ohne Patientenkonto, eine Echtzeit-Anzeige der voraussichtlichen Wartezeit und QR-Check-in im Wartezimmer. Für Patienten kostenlos und ohne App-Installation nutzbar; Praxen steuern Wartezimmer-Board, Schichtplan, Öffnungszeiten und Terminarten in einem Dashboard.",
+        "inLanguage": ["de", "en"],
+        "countriesSupported": ["DE", "AT", "CH"],
+        "featureList": [
+          "Anonyme Terminbuchung ohne Konto, Name oder E-Mail-Adresse",
+          "Echtzeit-Wartezeit aus Schichtplan, Terminartendauer und Check-ins",
+          "QR-Check-in über die Browser-Kamera, ohne zusätzliche App",
+          "Aufruf per Push-Benachrichtigung, auch bei gesperrtem Bildschirm",
+          "Wartezimmer-Board mit Patientenaufruf für die Praxis",
+          "Wochen-Schichtplan inklusive Abwesenheiten und Praxisschließungen",
+          "Öffnungszeiten mit mehreren Zeitblöcken pro Tag",
+          "Terminarten mit eigener Dauer selbst verwalten",
+          "Walk-ins manuell in die Warteschlange eintragen",
+          "Row Level Security auf allen neun Datenbanktabellen",
+          "Keine Tracking-Cookies und kein Werbe-Pixel",
+          "Bedienoberfläche auf Deutsch und Englisch"
+        ],
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Arztpraxen im DACH-Raum und deren Patienten"
+        },
+        "provider": { "@id": "https://qlin.info/#organization" },
+        "author": { "@id": "https://qlin.info/#organization" },
+        "softwareHelp": { "@id": "https://qlin.info/funktionen#webpage" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://qlin.info/#webpage",
+        "url": "https://qlin.info/",
+        "name": "Qlin — Wissen, wann Sie dran sind. Terminmanagement für Arztpraxen",
+        "description": "Qlin bringt Echtzeit-Wartezeiten, anonyme Terminbuchung und QR-Check-in in Ihre Praxis. Ruhigeres Wartezimmer, planbarer Tag — ohne App, DSGVO-konform.",
+        "inLanguage": "de-DE",
+        "isPartOf": { "@id": "https://qlin.info/#website" },
+        "about": { "@id": "https://qlin.info/#software" },
+        "mainEntity": { "@id": "https://qlin.info/#software" },
+        "publisher": { "@id": "https://qlin.info/#organization" },
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "https://qlin.info/assets/og-image.png" },
+        "dateModified": "2026-09-10"
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://qlin.info/#howto",
+        "name": "Mit Qlin einen Arzttermin buchen, die Wartezeit sehen und einchecken",
+        "description": "In vier Schritten vom Termin bis zum Aufruf — ohne Anruf, ohne Konto und ohne App-Installation.",
+        "inLanguage": "de-DE",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Praxis finden",
+            "text": "Nach Name, Fachrichtung oder Ort suchen — die Öffnungszeiten stehen dabei direkt am Suchergebnis.",
+            "url": "https://qlin.info/#ablauf"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Termin buchen",
+            "text": "Freien Slot und Terminart wählen. Die Bestätigung kommt sofort, ganz ohne Anruf und ohne Konto.",
+            "url": "https://qlin.info/#ablauf"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Wartezeit sehen",
+            "text": "Am Termintag zeigt Qlin live, wie viele Patienten vor Ihnen sind und wann Sie voraussichtlich aufgerufen werden.",
+            "url": "https://qlin.info/#ablauf"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Einchecken",
+            "text": "In der Praxis den QR-Code scannen, Platz nehmen und auf die Push-Benachrichtigung warten — der Aufruf kommt aufs Handy.",
+            "url": "https://qlin.info/#ablauf"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://qlin.info/#faq",
+        "inLanguage": "de-DE",
+        "isPartOf": { "@id": "https://qlin.info/#webpage" },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Was ist Qlin?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Qlin ist eine Web-Software für Arztpraxen im deutschsprachigen Raum. Patienten buchen damit anonym einen Termin, sehen am Termintag ihre voraussichtliche Wartezeit in Echtzeit und checken beim Eintreffen per QR-Code ein. Die Praxis steuert parallel Wartezimmer-Board, Schichtplan, Öffnungszeiten und Terminarten in einem Dashboard."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Was kostet Qlin?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Für Patienten ist Qlin kostenlos — es fallen weder Gebühren noch In-App-Käufe an. Für Praxen stehen die Konditionen noch nicht öffentlich fest: Qlin steht vor dem Start und legt die Preise gemeinsam mit den ersten Pilotpraxen fest. Ein Angebot gibt es auf Anfrage über das Demo-Formular."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Müssen Patienten eine App installieren?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nein. Qlin läuft im Browser des Patienten; ein Download aus dem App Store oder von Google Play ist nicht nötig. Wer möchte, kann die Seite als Web-App auf dem Startbildschirm ablegen — Pflicht ist das nicht."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Müssen Patienten ein Konto anlegen oder ihren Namen angeben?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nein. Die Terminbuchung bei Qlin ist anonym: Es werden weder Name noch E-Mail-Adresse noch ein Passwort abgefragt. Die Sitzung bleibt im Browser des Patienten."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie wird die Wartezeit berechnet und wie genau ist sie?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Qlin berechnet die Wartezeit mit einer Warteschlangen-Simulation aus drei Größen: dem hinterlegten Schichtplan, der Dauer der jeweiligen Terminart und den tatsächlichen Check-ins des Tages. Die Anzeige aktualisiert sich laufend und verschiebt sich mit, wenn die Praxis in Verzug gerät. Sie bleibt eine Schätzung — wie genau sie ist, hängt davon ab, wie realistisch die Praxis Terminarten und Schichten pflegt."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie funktioniert der QR-Check-in?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In der Praxis hängt ein QR-Code aus. Der Patient scannt ihn beim Eintreffen mit der Kamera im Browser und ist damit eingecheckt — eine gesonderte Scanner-App braucht es nicht. Der Check-in erscheint sofort auf dem Wartezimmer-Board der Praxis, der Checkout schließt den Besuch ab."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Ist Qlin DSGVO-konform und wo liegen die Daten?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Qlin ist für den DACH-Raum gebaut und entsprechend aufgesetzt: Patienten nutzen es anonym, die Daten liegen in einem EU-Rechenzentrum in Frankfurt am Main, und jede Praxis ist per Row Level Security auf allen neun Datenbanktabellen von allen anderen getrennt. Es gibt keine Tracking-Cookies, kein Werbe-Pixel und keine extern geladenen Schriften. Impressum, Datenschutzerklärung, dokumentierte Auftragsverarbeitung und umgesetztes Löschrecht gehören dazu."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Ersetzt Qlin unser Praxisverwaltungssystem (PVS)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nein. Qlin führt keine Patientenakte, keine Abrechnung und keine Diagnosen, sondern läuft eigenständig neben der vorhandenen Praxissoftware. Es deckt den Weg vom Termin bis zum Aufruf ab: Buchung, Wartezeit, Check-in und Wartezimmer."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Für welche Praxen eignet sich Qlin?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Qlin ist für ambulante Praxen im DACH-Raum gebaut, in denen Patienten im Wartezimmer warten — Hausarzt-, Facharzt- und Gemeinschaftspraxen ebenso wie medizinische Versorgungszentren. Der Nutzen ist dort am größten, wo gebuchte Termine und Walk-ins gemischt auftreten und die Wartezeiten schwanken."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Was ist mit Patienten ohne Smartphone?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Für sie ändert sich nichts: Sie melden sich wie gewohnt am Empfang, und die Praxis trägt sie von Hand in die Warteschlange ein. Sie erscheinen auf demselben Wartezimmer-Board wie alle anderen und werden bei der Wartezeit mitgerechnet."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie läuft die Einrichtung in der Praxis ab?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nach der Demo-Anfrage werden gemeinsam die Öffnungszeiten, die Terminarten mit ihrer jeweiligen Dauer und der Wochen-Schichtplan hinterlegt. Danach ist die Praxis buchbar und der QR-Code kann im Wartezimmer aushängen. Es ist keine Installation, keine eigene Server-Hardware und keine VPN-Einrichtung nötig — ein Rechner oder Tablet mit Browser genügt."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "In welchen Ländern und Sprachen ist Qlin verfügbar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Qlin richtet sich an Praxen in Deutschland, Österreich und der Schweiz. Die Anwendung gibt es auf Deutsch und Englisch. Aktuell steht Qlin vor dem Start und nimmt Pilotpraxen auf."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -41,8 +297,9 @@
       <nav class="nav-desktop" aria-label="Hauptnavigation">
         <a href="#patienten">Für Patienten</a>
         <a href="#praxis">Für Praxen</a>
-        <a href="#ablauf">Ablauf</a>
+        <a href="funktionen.html">Funktionen</a>
         <a href="#sicherheit">Sicherheit</a>
+        <a href="#faq">Fragen</a>
       </nav>
 
       <div class="header-actions">
@@ -58,8 +315,10 @@
       <nav aria-label="Mobile Navigation">
         <a href="#patienten">Für Patienten</a>
         <a href="#praxis">Für Praxen</a>
+        <a href="funktionen.html">Funktionen</a>
         <a href="#ablauf">Ablauf</a>
         <a href="#sicherheit">Sicherheit</a>
+        <a href="#faq">Häufige Fragen</a>
         <a class="mobile-cta" href="#kontakt">Demo anfragen</a>
       </nav>
     </div>
@@ -308,6 +567,83 @@
       </div>
     </section>
 
+    <!-- ============ FAQ ============ -->
+    <section class="section shell faq" id="faq" aria-labelledby="faq-h">
+      <div class="faq-inner">
+        <div class="faq-head">
+          <p class="eyebrow reveal">Häufige Fragen</p>
+          <h2 class="section-title reveal" id="faq-h">Gefragt und beantwortet.</h2>
+          <p class="section-lead reveal">
+            Was Praxen und Patienten am häufigsten wissen wollen. Mehr Details stehen
+            in den <a href="funktionen.html">Funktionen</a> und im
+            <a href="wartezeit-reduzieren.html">Leitfaden zur Wartezeit</a>.
+          </p>
+        </div>
+
+        <div class="faq-list reveal">
+          <details class="faq-item">
+            <summary><h3>Was ist Qlin?</h3></summary>
+            <p>Qlin ist eine Web-Software für Arztpraxen im deutschsprachigen Raum. Patienten buchen damit anonym einen Termin, sehen am Termintag ihre voraussichtliche Wartezeit in Echtzeit und checken beim Eintreffen per QR-Code ein. Die Praxis steuert parallel Wartezimmer-Board, Schichtplan, Öffnungszeiten und Terminarten in einem Dashboard.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Was kostet Qlin?</h3></summary>
+            <p>Für Patienten ist Qlin kostenlos — es fallen weder Gebühren noch In-App-Käufe an. Für Praxen stehen die Konditionen noch nicht öffentlich fest: Qlin steht vor dem Start und legt die Preise gemeinsam mit den ersten Pilotpraxen fest. Ein Angebot gibt es auf Anfrage über das Demo-Formular.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Müssen Patienten eine App installieren?</h3></summary>
+            <p>Nein. Qlin läuft im Browser des Patienten; ein Download aus dem App Store oder von Google Play ist nicht nötig. Wer möchte, kann die Seite als Web-App auf dem Startbildschirm ablegen — Pflicht ist das nicht.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Müssen Patienten ein Konto anlegen oder ihren Namen angeben?</h3></summary>
+            <p>Nein. Die Terminbuchung bei Qlin ist anonym: Es werden weder Name noch E-Mail-Adresse noch ein Passwort abgefragt. Die Sitzung bleibt im Browser des Patienten.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Wie wird die Wartezeit berechnet und wie genau ist sie?</h3></summary>
+            <p>Qlin berechnet die Wartezeit mit einer Warteschlangen-Simulation aus drei Größen: dem hinterlegten Schichtplan, der Dauer der jeweiligen Terminart und den tatsächlichen Check-ins des Tages. Die Anzeige aktualisiert sich laufend und verschiebt sich mit, wenn die Praxis in Verzug gerät. Sie bleibt eine Schätzung — wie genau sie ist, hängt davon ab, wie realistisch die Praxis Terminarten und Schichten pflegt.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Wie funktioniert der QR-Check-in?</h3></summary>
+            <p>In der Praxis hängt ein QR-Code aus. Der Patient scannt ihn beim Eintreffen mit der Kamera im Browser und ist damit eingecheckt — eine gesonderte Scanner-App braucht es nicht. Der Check-in erscheint sofort auf dem Wartezimmer-Board der Praxis, der Checkout schließt den Besuch ab.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Ist Qlin DSGVO-konform und wo liegen die Daten?</h3></summary>
+            <p>Qlin ist für den DACH-Raum gebaut und entsprechend aufgesetzt: Patienten nutzen es anonym, die Daten liegen in einem EU-Rechenzentrum in Frankfurt am Main, und jede Praxis ist per Row Level Security auf allen neun Datenbanktabellen von allen anderen getrennt. Es gibt keine Tracking-Cookies, kein Werbe-Pixel und keine extern geladenen Schriften. Impressum, Datenschutzerklärung, dokumentierte Auftragsverarbeitung und umgesetztes Löschrecht gehören dazu.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Ersetzt Qlin unser Praxisverwaltungssystem (PVS)?</h3></summary>
+            <p>Nein. Qlin führt keine Patientenakte, keine Abrechnung und keine Diagnosen, sondern läuft eigenständig neben der vorhandenen Praxissoftware. Es deckt den Weg vom Termin bis zum Aufruf ab: Buchung, Wartezeit, Check-in und Wartezimmer.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Für welche Praxen eignet sich Qlin?</h3></summary>
+            <p>Qlin ist für ambulante Praxen im DACH-Raum gebaut, in denen Patienten im Wartezimmer warten — Hausarzt-, Facharzt- und Gemeinschaftspraxen ebenso wie medizinische Versorgungszentren. Der Nutzen ist dort am größten, wo gebuchte Termine und Walk-ins gemischt auftreten und die Wartezeiten schwanken.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Was ist mit Patienten ohne Smartphone?</h3></summary>
+            <p>Für sie ändert sich nichts: Sie melden sich wie gewohnt am Empfang, und die Praxis trägt sie von Hand in die Warteschlange ein. Sie erscheinen auf demselben Wartezimmer-Board wie alle anderen und werden bei der Wartezeit mitgerechnet.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>Wie läuft die Einrichtung in der Praxis ab?</h3></summary>
+            <p>Nach der Demo-Anfrage werden gemeinsam die Öffnungszeiten, die Terminarten mit ihrer jeweiligen Dauer und der Wochen-Schichtplan hinterlegt. Danach ist die Praxis buchbar und der QR-Code kann im Wartezimmer aushängen. Es ist keine Installation, keine eigene Server-Hardware und keine VPN-Einrichtung nötig — ein Rechner oder Tablet mit Browser genügt.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary><h3>In welchen Ländern und Sprachen ist Qlin verfügbar?</h3></summary>
+            <p>Qlin richtet sich an Praxen in Deutschland, Österreich und der Schweiz. Die Anwendung gibt es auf Deutsch und Englisch. Aktuell steht Qlin vor dem Start und nimmt Pilotpraxen auf.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ CTA ============ -->
     <section class="cta band-cta theme-patient" id="kontakt" aria-labelledby="cta-h">
       <div class="shell cta-inner">
@@ -361,10 +697,18 @@
 
       <nav class="footer-col" aria-label="Produkt">
         <p class="footer-h">Produkt</p>
+        <a href="funktionen.html">Funktionen</a>
         <a href="#patienten">Für Patienten</a>
         <a href="#praxis">Für Praxen</a>
         <a href="#ablauf">Ablauf</a>
         <a href="#sicherheit">Sicherheit</a>
+      </nav>
+
+      <nav class="footer-col" aria-label="Wissen">
+        <p class="footer-h">Wissen</p>
+        <a href="wartezeit-reduzieren.html">Wartezeit reduzieren</a>
+        <a href="ueber-qlin.html">Über Qlin</a>
+        <a href="#faq">Häufige Fragen</a>
       </nav>
 
       <nav class="footer-col" aria-label="Rechtliches">
@@ -373,15 +717,10 @@
         <a href="datenschutz.html">Datenschutz</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
-
-      <div class="footer-col">
-        <p class="footer-h">Sprache</p>
-        <p class="footer-meta">Deutsch · English</p>
-        <p class="footer-meta">Made in DACH</p>
-      </div>
     </div>
     <div class="shell footer-base">
       <p>© <span data-year>2026</span> Qlin</p>
+      <p>Deutsch · English · Made in DACH</p>
       <p>Kein Ersatz für ärztlichen Rat.</p>
     </div>
   </footer>
