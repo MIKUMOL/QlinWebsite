@@ -29,7 +29,7 @@
         "@id": "https://qlin.info/#organization",
         "name": "Qlin",
         "legalName": "Maximilian Kurth (Einzelunternehmen)",
-        "description": "Qlin entwickelt eine Web-Software für Arztpraxen im DACH-Raum, die anonyme Terminbuchung, Echtzeit-Wartezeit und QR-Check-in verbindet.",
+        "description": "Qlin entwickelt eine Web-Software für Arztpraxen im DACH-Raum, die Terminbuchung ohne Patientenkonto, Echtzeit-Wartezeit und QR-Check-in verbindet.",
         "url": "https://qlin.info/",
         "email": "contact@qlin.info",
         "logo": {
@@ -57,7 +57,7 @@
         "knowsAbout": [
           "Terminmanagement für Arztpraxen",
           "Wartezeitmanagement im Wartezimmer",
-          "Anonyme Online-Terminbuchung",
+          "Online-Terminbuchung ohne Patientenkonto",
           "QR-Check-in in der Arztpraxis",
           "DSGVO-konforme Praxissoftware"
         ],
@@ -146,9 +146,7 @@
 
     <div class="prose">
       <p class="doc-lede">
-        <strong>Qlin ist eine Web-Software für Arztpraxen im deutschsprachigen Raum, die anonyme
-        Terminbuchung, eine Echtzeit-Anzeige der Wartezeit und QR-Check-in im Wartezimmer
-        verbindet.</strong> Entwickelt wird sie von Maximilian Kurth als Einzelunternehmen mit Sitz
+        <strong>Qlin ist eine Web-Software für Arztpraxen im deutschsprachigen Raum, die Terminbuchung ohne Patientenkonto, eine Echtzeit-Anzeige der Wartezeit und QR-Check-in im Wartezimmer verbindet.</strong> Entwickelt wird sie von Maximilian Kurth als Einzelunternehmen mit Sitz
         in Greven, Nordrhein-Westfalen.
       </p>
 
@@ -160,30 +158,25 @@
 
       <h3>Ein Satz</h3>
       <blockquote class="doc-quote">
-        Qlin ist eine Web-Software für Arztpraxen, mit der Patienten anonym Termine buchen, ihre
-        Wartezeit in Echtzeit sehen und per QR-Code einchecken.
+        Qlin ist eine Web-Software für Arztpraxen, mit der Patienten ohne Konto Termine buchen, ihre Wartezeit in Echtzeit sehen und per QR-Code einchecken.
       </blockquote>
 
       <h3>Kurzfassung</h3>
       <blockquote class="doc-quote">
-        Qlin bringt Echtzeit-Wartezeiten, anonyme Terminbuchung und QR-Check-in in Arztpraxen im
-        DACH-Raum. Patienten nutzen die Software kostenlos im Browser — ohne App-Installation, ohne
-        Konto und ohne Angabe von Name oder E-Mail-Adresse. Praxen steuern parallel Wartezimmer,
+        Qlin bringt Echtzeit-Wartezeiten, Terminbuchung ohne Konto und QR-Check-in in Arztpraxen im DACH-Raum. Patienten nutzen die Software kostenlos im Browser — ohne Installationszwang, ohne Konto und ohne Angabe von E-Mail-Adresse oder Passwort; für die Buchung genügt der Name. Praxen steuern parallel Wartezimmer,
         Schichtplan, Öffnungszeiten und Terminarten in einem Dashboard.
       </blockquote>
 
       <h3>Langfassung</h3>
       <blockquote class="doc-quote">
         Qlin ist eine Web-Software für Arztpraxen im deutschsprachigen Raum. Sie deckt den ganzen
-        Terminweg ab: Patienten suchen eine Praxis, buchen anonym einen Termin, sehen am Termintag
+        Terminweg ab: Patienten suchen eine Praxis, buchen ohne Konto einen Termin, sehen am Termintag
         anhand einer Warteschlangen-Simulation, wann sie voraussichtlich aufgerufen werden, checken
         beim Eintreffen per QR-Code ein und erhalten den Aufruf als Push-Benachrichtigung auf das
-        Handy. Weder Name noch E-Mail-Adresse sind dafür nötig, und es muss keine App aus einem Store
-        installiert werden. Auf der Praxisseite bündelt ein Dashboard das Wartezimmer-Board mit
+        Handy. Außer dem Namen sind dafür keine Angaben nötig — keine E-Mail-Adresse, kein Passwort — und es muss keine App aus einem Store installiert werden. Auf der Praxisseite bündelt ein Dashboard das Wartezimmer-Board mit
         Patientenaufruf, den Wochen-Schichtplan mit Abwesenheiten und Schließungen, Öffnungszeiten
         mit mehreren Zeitblöcken pro Tag sowie selbst verwaltete Terminarten mit eigener Dauer.
-        Qlin verzichtet auf Tracking-Cookies und Werbe-Pixel, sichert jede Praxis per Row Level
-        Security auf Datenbankebene ab und hält die Daten in einem EU-Rechenzentrum. Entwickelt wird
+        Qlin verarbeitet nur, was Terminvergabe und Wartezimmer brauchen, sichert jede Praxis per Row Level Security auf Datenbankebene ab und hält die Daten in einem EU-Rechenzentrum. Entwickelt wird
         Qlin von Maximilian Kurth als Einzelunternehmen mit Sitz in Greven, Nordrhein-Westfalen.
       </blockquote>
 
@@ -216,9 +209,9 @@
 
       <h2 id="prinzipien">Prinzipien</h2>
       <ul>
-        <li><strong>Anonym als Standard.</strong> Wer einen Termin bucht, hinterlässt keinen Namen und keine E-Mail-Adresse. Was nicht erhoben wird, kann nicht verloren gehen.</li>
+        <li><strong>Datensparsam als Standard.</strong> Wer einen Termin bucht, hinterlässt seinen Namen — sonst nichts: keine E-Mail-Adresse, kein Passwort, kein Konto. Was nicht erhoben wird, kann nicht verloren gehen.</li>
         <li><strong>Kein zusätzliches Gerät, keine zusätzliche App.</strong> Der Browser, den Patient und Praxis ohnehin haben, reicht aus.</li>
-        <li><strong>Kein Tracking.</strong> Keine Werbe-Pixel, keine Tracking-Cookies, keine extern geladenen Schriften. Deshalb braucht diese Website auch kein Cookie-Banner.</li>
+        <li><strong>Keine fremden Server im Spiel.</strong> Diese Website lädt weder Schriften noch Skripte von Dritten nach. Was dabei an Daten anfällt, steht in der Datenschutzerklärung.</li>
         <li><strong>Trennung auf Datenbankebene.</strong> Row Level Security auf allen neun Tabellen — eine Praxis kann technisch nicht die Daten einer anderen sehen.</li>
         <li><strong>Ehrliche Zahlen.</strong> Auf dieser Website steht keine Kennzahl, die nicht belegbar ist. Solange Qlin vor dem Start steht, wird auch nichts anderes behauptet.</li>
       </ul>

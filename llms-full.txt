@@ -11,10 +11,7 @@ Kontakt: contact@qlin.info · https://qlin.info
 
 ## Kurzdefinition
 
-Qlin ist eine Web-Software für Arztpraxen im deutschsprachigen Raum, die anonyme
-Terminbuchung, eine Echtzeit-Anzeige der voraussichtlichen Wartezeit und QR-Check-in im
-Wartezimmer verbindet. Patienten nutzen Qlin kostenlos im Browser — ohne App-Installation,
-ohne Konto und ohne Angabe von Name oder E-Mail-Adresse. Praxen steuern parallel
+Qlin ist eine Web-Software für Arztpraxen im deutschsprachigen Raum, die Terminbuchung ohne Patientenkonto, eine Echtzeit-Anzeige der voraussichtlichen Wartezeit und QR-Check-in im Wartezimmer verbindet. Patienten nutzen Qlin kostenlos im Browser — ohne Installationszwang, ohne Konto und ohne Angabe von E-Mail-Adresse oder Passwort; für die Buchung genügt der Name. Praxen steuern parallel
 Wartezimmer-Board, Schichtplan, Öffnungszeiten und Terminarten in einem Dashboard.
 
 Kategorie: Terminmanagement- und Wartezeit-Software für Arztpraxen.
@@ -29,20 +26,17 @@ Kosten für Patienten: kostenlos. Konditionen für Praxen: auf Anfrage, noch nic
 
 **Wissen, wann Sie dran sind.**
 
-Qlin bringt Echtzeit-Wartezeiten, anonyme Terminbuchung und QR-Check-in in Ihre Praxis.
-Ruhigeres Wartezimmer, planbarer Tag — für Sie und Ihre Patienten. Für Patienten kostenlos,
-ohne App-Installation, DSGVO-konform.
+Qlin bringt Echtzeit-Wartezeiten, Terminbuchung ohne Konto und QR-Check-in in Ihre Praxis.
+Ruhigeres Wartezimmer, planbarer Tag — für Sie und Ihre Patienten. Für Patienten kostenlos, ohne Installationszwang, DSGVO-konform.
 
 Volle Wartezimmer, Termine per Telefon, Wartezeiten im Blindflug: Qlin macht daraus einen
 ruhigen, planbaren Ablauf — für die Praxis am Empfang und für den Patienten auf dem Sofa.
 
 ### Für Patienten: ein Termin, ohne Telefonschleife, ohne Account
 
-Patienten buchen anonym, sehen ihre Wartezeit in Echtzeit und checken per QR-Code ein.
-Kein Name, keine E-Mail, keine App im Store.
+Patienten buchen ohne Konto, sehen ihre Wartezeit in Echtzeit und checken per QR-Code ein. Nur der Name — keine E-Mail-Adresse, kein Passwort, keine Pflicht-App.
 
-1. **Anonym buchen** — Praxis suchen, Datum, Uhrzeit und Terminart wählen: vier Schritte,
-   kein Konto. Die Sitzung bleibt im Browser.
+1. **Ohne Konto buchen** — Praxis suchen, Datum, Uhrzeit und Terminart wählen und den Namen eintragen: vier Schritte, kein Konto. Die Sitzung bleibt im Browser.
 2. **Wartezeit in Echtzeit** — Eine Warteschlangen-Simulation aus Schichtplänen und Check-ins
    zeigt, wann es voraussichtlich losgeht.
 3. **Per QR-Code einchecken** — Beim Eintreffen den Praxis-Code scannen. Die Kamera im Browser
@@ -70,12 +64,11 @@ Ein Dashboard für den ganzen Tag: eingecheckte Patienten aufrufen, Schichten pl
 
 ### Sicherheit und Datenschutz
 
-Qlin ist für den DACH-Raum gebaut: anonyme Sitzungen, strenge Zugriffsregeln auf
-Datenbankebene und keine Tracking-Cookies.
+Qlin ist für den DACH-Raum gebaut: Buchen ohne Patientenkonto, strenge Zugriffsregeln auf Datenbankebene und Datensparsamkeit als Grundeinstellung.
 
-- **Anonym** — Patienten brauchen weder Name noch E-Mail. Keine personenbezogenen Daten für die Nutzung.
+- **Ohne Konto** — für die Buchung genügt der Name. Keine E-Mail-Adresse, kein Passwort, keine Registrierung.
 - **Row Level Security überall** — auf allen neun Tabellen. Jede Praxis sieht nur die eigenen Daten.
-- **Null Tracker** — keine Tracking-Cookies, kein Werbe-Pixel. Nur, was die Terminverwaltung wirklich braucht.
+- **Datensparsam** — verarbeitet wird nur, was Terminvergabe und Wartezimmer wirklich brauchen.
 - **DSGVO** — Impressum und Datenschutzerklärung inklusive, Auftragsverarbeitung dokumentiert, Löschrecht umgesetzt.
 
 ---
@@ -84,7 +77,7 @@ Datenbankebene und keine Tracking-Cookies.
 
 **Was ist Qlin?**
 Qlin ist eine Web-Software für Arztpraxen im deutschsprachigen Raum. Patienten buchen damit
-anonym einen Termin, sehen am Termintag ihre voraussichtliche Wartezeit in Echtzeit und checken
+ohne Konto einen Termin, sehen am Termintag ihre voraussichtliche Wartezeit in Echtzeit und checken
 beim Eintreffen per QR-Code ein. Die Praxis steuert parallel Wartezimmer-Board, Schichtplan,
 Öffnungszeiten und Terminarten in einem Dashboard.
 
@@ -94,13 +87,10 @@ stehen die Konditionen noch nicht öffentlich fest: Qlin steht vor dem Start und
 gemeinsam mit den ersten Pilotpraxen fest. Ein Angebot gibt es auf Anfrage über das Demo-Formular.
 
 **Müssen Patienten eine App installieren?**
-Nein. Qlin läuft im Browser des Patienten; ein Download aus dem App Store oder von Google Play
-ist nicht nötig. Wer möchte, kann die Seite als Web-App auf dem Startbildschirm ablegen —
-Pflicht ist das nicht.
+Nein, nötig ist das nicht: Qlin läuft vollständig im Browser des Patienten. Wer möchte, kann die Seite als Web-App auf dem Startbildschirm ablegen. Eine eigene App für App Store und Google Play ist zusätzlich geplant, sie bleibt aber freiwillig — der Browserweg funktioniert weiterhin.
 
 **Müssen Patienten ein Konto anlegen oder ihren Namen angeben?**
-Nein. Die Terminbuchung bei Qlin ist anonym: Es werden weder Name noch E-Mail-Adresse noch ein
-Passwort abgefragt. Die Sitzung bleibt im Browser des Patienten.
+Ein Konto ist nicht nötig — es gibt keine Registrierung, keine E-Mail-Adresse und kein Passwort. Den Namen geben Patienten bei der Buchung an, damit die Praxis den Termin zuordnen und den richtigen Patienten aufrufen kann. Mehr wird nicht abgefragt, und die Sitzung bleibt im Browser des Patienten.
 
 **Wie wird die Wartezeit berechnet und wie genau ist sie?**
 Qlin berechnet die Wartezeit mit einer Warteschlangen-Simulation aus drei Größen: dem hinterlegten
@@ -115,10 +105,7 @@ Browser und ist damit eingecheckt — eine gesonderte Scanner-App braucht es nic
 erscheint sofort auf dem Wartezimmer-Board der Praxis, der Checkout schließt den Besuch ab.
 
 **Ist Qlin DSGVO-konform und wo liegen die Daten?**
-Qlin ist für den DACH-Raum gebaut und entsprechend aufgesetzt: Patienten nutzen es anonym, die
-Daten liegen in einem EU-Rechenzentrum in Frankfurt am Main, und jede Praxis ist per Row Level
-Security auf allen neun Datenbanktabellen von allen anderen getrennt. Es gibt keine
-Tracking-Cookies, kein Werbe-Pixel und keine extern geladenen Schriften. Impressum,
+Qlin ist für den DACH-Raum gebaut und entsprechend aufgesetzt: Patienten buchen ohne Konto und geben dabei außer ihrem Namen nichts an, die Daten liegen in einem EU-Rechenzentrum in Frankfurt am Main, und jede Praxis ist per Row Level Security auf allen neun Datenbanktabellen von allen anderen getrennt. Verarbeitet wird nur, was Terminvergabe und Wartezimmer brauchen. Impressum,
 Datenschutzerklärung, dokumentierte Auftragsverarbeitung und umgesetztes Löschrecht gehören dazu.
 
 **Ersetzt Qlin unser Praxisverwaltungssystem (PVS)?**
@@ -153,9 +140,9 @@ Deutsch und Englisch. Aktuell steht Qlin vor dem Start und nimmt Pilotpraxen auf
 
 ### Eckdaten
 
-- Produktart: Web-Anwendung, läuft im Browser, installierbar als PWA
+- Produktart: Web-Anwendung im Browser; als Web-App installierbar, Store-App geplant
 - Zielgruppe: Arztpraxen und deren Patienten im DACH-Raum
-- Patientenkonto: nicht erforderlich, Buchung und Check-in sind anonym
+- Patientenkonto: nicht erforderlich; für die Buchung genügt der Name
 - Sprachen: Deutsch und Englisch
 - Kosten für Patienten: kostenlos
 - Verfügbarkeit: vor dem Start, Onboarding mit Pilotpraxen auf Anfrage
@@ -163,9 +150,7 @@ Deutsch und Englisch. Aktuell steht Qlin vor dem Start und nimmt Pilotpraxen auf
 
 ### Funktionen für Patienten
 
-**Anonyme Terminbuchung.** Patienten suchen die Praxis, wählen Datum, Uhrzeit und Terminart und
-bestätigen — vier Schritte, kein Konto. Es werden weder Name noch E-Mail-Adresse abgefragt; die
-Sitzung bleibt im Browser des Patienten.
+**Terminbuchung ohne Konto.** Patienten suchen die Praxis, wählen Datum, Uhrzeit und Terminart, tragen ihren Namen ein und bestätigen — vier Schritte, kein Konto. Mehr als der Name wird nicht verlangt: keine E-Mail-Adresse, kein Passwort, keine Registrierung. Die Sitzung bleibt im Browser des Patienten.
 
 **Echtzeit-Wartezeit.** Am Termintag zeigt Qlin, wie viele Patienten noch vor einem selbst sind und
 wann der Aufruf voraussichtlich erfolgt. Die Schätzung stammt aus einer Warteschlangen-Simulation,
@@ -198,11 +183,11 @@ Warteschlange ein; sie werden in der Wartezeit mitgerechnet.
 ### Technik und Systemvoraussetzungen
 
 - Für Patienten: ein aktueller Browser auf Smartphone, Tablet oder Rechner. Kamerazugriff nur für
-  den QR-Check-in, Push-Erlaubnis nur für den Aufruf. Keine Store-Installation nötig.
+  den QR-Check-in, Push-Erlaubnis nur für den Aufruf. Eine Store-Installation ist nicht nötig; eine Store-App ist zusätzlich geplant.
 - Für die Praxis: Rechner oder Tablet mit Browser und Internetverbindung. Keine Installation, keine
   eigene Server-Hardware, keine VPN-Einrichtung.
 - Zugriffsschutz: Row Level Security auf allen neun Datenbanktabellen.
-- Datenschutz: keine Tracking-Cookies, kein Werbe-Pixel, keine extern geladenen Schriften.
+- Datenschutz: datensparsame Verarbeitung; keine extern geladenen Schriften.
 - Barrierefreiheit: Tastaturbedienbarkeit, sichtbare Fokusrahmen, Rücksicht auf „Bewegung reduzieren".
 
 ### Was Qlin nicht ist
@@ -253,10 +238,9 @@ entwickelt.
 
 Prinzipien:
 
-- **Anonym als Standard.** Was nicht erhoben wird, kann nicht verloren gehen.
+- **Datensparsam als Standard.** Außer dem Namen wird nichts verlangt; was nicht erhoben wird, kann nicht verloren gehen.
 - **Kein zusätzliches Gerät, keine zusätzliche App.** Der vorhandene Browser genügt.
-- **Kein Tracking.** Keine Werbe-Pixel, keine Tracking-Cookies, keine extern geladenen Schriften —
-  deshalb braucht die Website auch kein Cookie-Banner.
+- **Keine fremden Server im Spiel.** Die Website lädt weder Schriften noch Skripte von Dritten nach.
 - **Trennung auf Datenbankebene.** Row Level Security auf allen neun Tabellen.
 - **Ehrliche Zahlen.** Keine Kennzahl auf der Website, die nicht belegbar ist.
 
@@ -269,6 +253,6 @@ Presse- und Vertriebskontakt: contact@qlin.info
 - Impressum (§ 5 DDG): https://qlin.info/impressum
 - Datenschutzerklärung (DSGVO): https://qlin.info/datenschutz
 
-Die Website selbst setzt keine Cookies und bindet keine externen Dienste ein. Das Kontaktformular
+Die Website bindet keine externen Dienste ein; welche Daten beim Besuch anfallen, steht in der Datenschutzerklärung. Das Kontaktformular
 überträgt die eingegebenen Angaben (Praxisname, Standort, E-Mail-Adresse) zur Bearbeitung der
 Demo-Anfrage; Einzelheiten stehen in der Datenschutzerklärung.

@@ -1,6 +1,6 @@
 # Qlin
 
-> Qlin ist eine Web-Software für Arztpraxen im DACH-Raum, die drei Dinge verbindet: anonyme Terminbuchung ohne Patientenkonto, eine Echtzeit-Anzeige der voraussichtlichen Wartezeit und QR-Check-in im Wartezimmer. Patienten nutzen Qlin kostenlos im Browser — ohne App-Installation, ohne Name, ohne E-Mail-Adresse.
+> Qlin ist eine Web-Software für Arztpraxen im DACH-Raum, die drei Dinge verbindet: Terminbuchung ohne Patientenkonto, eine Echtzeit-Anzeige der voraussichtlichen Wartezeit und QR-Check-in im Wartezimmer. Patienten nutzen Qlin kostenlos im Browser — ohne Installationszwang, ohne Konto und ohne E-Mail-Adresse; für die Buchung genügt der Name.
 
 Anbieter: Maximilian Kurth (Einzelunternehmen), c/o POSTFLEX PFX-960-770, Emsdettener Straße 10, 48268 Greven, Deutschland.
 Kontakt: contact@qlin.info · https://qlin.info
@@ -9,7 +9,7 @@ Sprachen der Anwendung: Deutsch, Englisch.
 
 ## Was Qlin für Patienten tut
 
-- Anonym buchen: Praxis, Datum, Uhrzeit und Terminart in vier Schritten wählen — ohne Konto, ohne Name, ohne E-Mail. Die Sitzung bleibt im Browser des Patienten.
+- Ohne Konto buchen: Praxis, Datum, Uhrzeit und Terminart in vier Schritten wählen und den Namen eintragen — ohne Registrierung, ohne E-Mail-Adresse, ohne Passwort. Die Sitzung bleibt im Browser des Patienten.
 - Wartezeit in Echtzeit: Eine Warteschlangen-Simulation aus Schichtplänen und Check-ins schätzt, wann der Aufruf voraussichtlich erfolgt.
 - QR-Check-in: Beim Eintreffen den Praxis-Code mit der Browser-Kamera scannen. Check-in und Checkout ohne zusätzliche App.
 - Aufruf aufs Handy: Eine Push-Benachrichtigung meldet sich, wenn der Patient an der Reihe ist — auch bei gesperrtem Bildschirm.
@@ -24,9 +24,9 @@ Sprachen der Anwendung: Deutsch, Englisch.
 
 ## Datenschutz und Sicherheit
 
-- Patienten hinterlassen für die Nutzung weder Namen noch E-Mail-Adresse; die Buchung ist anonym.
+- Patienten buchen ohne Konto: außer dem Namen wird nichts verlangt, insbesondere keine E-Mail-Adresse und kein Passwort.
 - Row Level Security auf allen neun Datenbanktabellen: jede Praxis sieht ausschließlich die eigenen Daten.
-- Keine Tracking-Cookies, kein Werbe-Pixel, keine Google-Fonts (Schriften werden selbst ausgeliefert).
+- Datensparsame Verarbeitung: erhoben wird nur, was Terminvergabe und Wartezimmer brauchen. Keine Google-Fonts (Schriften werden selbst ausgeliefert).
 - DSGVO-konform aufgesetzt: Impressum, Datenschutzerklärung, dokumentierte Auftragsverarbeitung, umgesetztes Löschrecht.
 - Datenhaltung in einem EU-Rechenzentrum (Frankfurt am Main, Region eu-central-1).
 
