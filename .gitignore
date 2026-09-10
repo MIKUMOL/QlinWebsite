@@ -9,3 +9,7 @@ desktop.ini
 
 # Logs
 *.log
+
+# Secrets
+.env
+.env.*

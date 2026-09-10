@@ -1,0 +1,23 @@
+name: Seiten prüfen
+
+# Läuft vor jedem Deploy: bei Push auf main und bei Pull Requests.
+# Prüft JSON-LD, FAQ-Gleichlauf, interne Links, Meta-Angaben und Sitemap.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  pruefen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Statische Seiten prüfen
+        run: node tools/check-pages.mjs
