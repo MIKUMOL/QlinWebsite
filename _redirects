@@ -1,0 +1,7 @@
+# Cloudflare Pages – Weiterleitungen
+# Doku: https://developers.cloudflare.com/pages/configuration/redirects/
+#
+# Fallback fuer unbekannte Pfade. Statische Dateien haben Vorrang; diese Regel
+# greift erst, wenn keine Datei passt. Ohne sie liefert Pages einen leeren
+# 404-Body, obwohl 404.html im Deployment liegt.
+/*    /404.html    404
